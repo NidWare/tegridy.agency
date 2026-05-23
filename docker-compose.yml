@@ -1,0 +1,21 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: tegridy_caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./sites/tegridy:/srv/tegridy:ro
+      - ./sites/kiraaura:/srv/kiraaura:ro
+      - ./sites/milanafox:/srv/milanafox:ro
+      - ./docs/dist:/srv/docs:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

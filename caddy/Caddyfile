@@ -1,0 +1,50 @@
+{
+	email nidware@gmail.com
+}
+
+# tegridy.agency: landing on /, docs on /base
+tegridy.agency {
+	encode zstd gzip
+
+	redir /base /base/ permanent
+
+	handle_path /base/* {
+		root * /srv/docs
+		try_files {path} {path}/index.html {path}.html
+		file_server
+	}
+
+	handle {
+		root * /srv/tegridy
+		try_files {path} {path}/index.html
+		file_server
+	}
+}
+
+www.tegridy.agency {
+	redir https://tegridy.agency{uri} permanent
+}
+
+# kiraaura.com
+kiraaura.com {
+	encode zstd gzip
+	root * /srv/kiraaura
+	try_files {path} {path}/index.html
+	file_server
+}
+
+www.kiraaura.com {
+	redir https://kiraaura.com{uri} permanent
+}
+
+# milanafox.com
+milanafox.com {
+	encode zstd gzip
+	root * /srv/milanafox
+	try_files {path} {path}/index.html
+	file_server
+}
+
+www.milanafox.com {
+	redir https://milanafox.com{uri} permanent
+}
