@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Tegridy — для операторов</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ───────── SHARED RESET ───────── */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; font-family: 'Montserrat', sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+
+  /* responsive shell toggle (mobile-first default) */
+  .d-shell { display: none; }
+  .m-shell { display: block; }
+
+  /* ═════════════════════════════════════════════════════════
+     DESKTOP  (≥ 768px)  — 1440px canvas scaled to fit width
+     ═════════════════════════════════════════════════════════ */
+  @media (min-width: 768px) {
+    .d-shell { display: block; }
+    .m-shell { display: none; }
+
+    .scale-wrap { width: 100vw; overflow-x: hidden; }
+    .page {
+      position: relative;
+      width: 1440px;
+      height: 5311px;
+      margin: 0 auto;
+      background: #000;
+      transform-origin: top left;
+    }
+
+    .sec { position: absolute; left: 0; width: 1440px; overflow: hidden; }
+
+    /* ───────── HEADER ───────── */
+    .header { height: 100px; display: flex; align-items: center; overflow: visible !important; }
+    .header .logo {
+      position: absolute;
+      left: 56px; top: 12px;
+      width: 180px; height: 76px;
+      background: url('assets/logo-tegridy-dark.png') left center / contain no-repeat;
+    }
+    .header nav {
+      position: absolute;
+      left: 444px; top: 38px;
+      display: flex; gap: 40px; align-items: center;
+    }
+    .header nav a {
+      font-size: 20px; line-height: 1;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .header nav a:hover { color: #e4951e; }
+    .header .tg-link {
+      position: absolute;
+      left: 1320px; top: 30px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid; place-items: center;
+    }
+    .header .tg-link svg { width: 22px; height: 22px; }
+
+    /* ───────── HERO ───────── */
+    .hero { top: 0; height: 1024px; background: #000; }
+    .hero h1 {
+      position: absolute;
+      left: 80px; top: 278px;
+      width: 952px;
+      margin: 0;
+      font-size: 64px;
+      line-height: 84px;
+      font-weight: 800;
+      color: #717171;
+      letter-spacing: -0.005em;
+    }
+    .hero .lede {
+      position: absolute;
+      left: 80px; top: 470px;
+      width: 720px;
+      font-size: 24px;
+      line-height: 34px;
+      color: #717171;
+    }
+    .hero .cta {
+      position: absolute;
+      left: 80px; top: 586px;
+      width: 423px; height: 64px;
+      border-radius: 17px;
+      background: #e4951e;
+      color: #000;
+      display: flex; align-items: center;
+      padding: 0 44px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .hero .cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .hero .cta::after {
+      content: "";
+      margin-left: auto;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: #000 url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><line x1=%227%22 y1=%2217%22 x2=%2217%22 y2=%227%22/><polyline points=%227 7 17 7 17 17%22/></svg>') center/16px no-repeat;
+      transform: rotate(45deg);
+    }
+    .hero .stats {
+      position: absolute;
+      left: 80px; top: 736px;
+      display: flex; gap: 80px;
+    }
+    .hero .stat .v { font-size: 48px; font-weight: 500; line-height: 1; color: #fff; white-space: nowrap; }
+    .hero .stat .l { margin-top: 14px; font-size: 18px; line-height: 22px; color: #fff; white-space: pre-line; }
+    .hero .guy {
+      position: absolute;
+      left: 880px; top: 130px;
+      width: 568px; height: 852px;
+      background: url('assets/chatter-hero.png') center / contain no-repeat;
+    }
+
+    /* ───────── SERVICES + STATS ───────── */
+    .band-services {
+      top: 1024px;
+      height: 1098px;
+      background: #000;
+    }
+    .band-services .hd {
+      position: absolute;
+      left: 148px; top: 64px;
+      width: 1147px;
+      text-align: center;
+      font-size: 40px; line-height: 54px;
+      color: #fff;
+    }
+    .band-services .hd b { font-weight: 700; }
+    .band-services .cards {
+      position: absolute;
+      left: 80px; top: 212px;
+      width: 1281px;
+      display: flex; gap: 21px;
+    }
+    .band-services .card {
+      width: 413px; height: 236px;
+      border-radius: 24px;
+      border: 2px solid #fff;
+      padding: 28px 20px;
+      box-sizing: border-box;
+    }
+    .band-services .card h3 {
+      margin: 0 0 16px;
+      font-size: 24px; line-height: 34px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+    .band-services .card p {
+      margin: 0;
+      font-size: 16px; line-height: 26px;
+      color: #fff;
+    }
+
+    .band-services .hd2 {
+      position: absolute;
+      left: 0; right: 0; top: 528px;
+      text-align: center;
+      font-size: 40px; line-height: 46px;
+      color: #fff;
+    }
+    .band-services .hd2 b { font-weight: 700; }
+    .band-services .carousel {
+      position: absolute;
+      left: -82px; top: 614px;
+      width: 1605px; height: 420px;
+      overflow: hidden;
+      display: flex; gap: 20px;
+      padding-left: 60px;
+    }
+    .band-services .dash {
+      flex: 0 0 305px;
+      height: 380px;
+      border-radius: 16px;
+      background: #16151b;
+      align-self: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .band-services .dash img {
+      position: absolute;
+      left: 13px; top: 0;
+      width: 279px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* ───────── PROCESS ───────── */
+    .process { top: 2122px; height: 1607px; background: #131313; color: #fff; }
+    .process h2 {
+      position: absolute;
+      left: 0; right: 0; top: 64px;
+      margin: 0;
+      text-align: center;
+      font-size: 40px; line-height: 46px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .process .row {
+      position: absolute;
+      display: flex; align-items: center;
+      gap: 64px;
+    }
+    .process .row .imgbox {
+      position: relative; flex: 0 0 auto; overflow: hidden;
+    }
+    .process .row .imgbox .silhouette {
+      width: 100%; height: 100%;
+      background: url('assets/silhouette.png') center / cover no-repeat;
+    }
+    .process .row .imgbox.stan .silhouette {
+      background: url('assets/stan.png') center / cover no-repeat;
+    }
+    .process .row .imgbox .panel {
+      position: absolute;
+      width: 151px; height: 94px;
+    }
+    .process .row .body { flex: 1 1 auto; max-width: 1064px; }
+    .process .row h3 {
+      margin: 0 0 24px;
+      font-size: 40px; line-height: 48px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.005em;
+    }
+    .process .row p { margin: 0; font-size: 20px; line-height: 32px; color: #fff; }
+
+    .row-1 { left: -58px; top: 150px; width: 1370px; height: 357px; }
+    .row-1 .imgbox { width: 242px; height: 357px; }
+    .row-1 .imgbox.stan .panel { left: 46px; top: 124.5px; background: #0a59a6; }
+    .row-1 h3 { color: #0a59a6; }
+
+    .row-2 { left: 248px; top: 657px; width: 1300px; height: 373px; flex-direction: row-reverse; gap: 64px; }
+    .row-2 .imgbox { width: 271px; height: 373px; }
+    .row-2 .imgbox .panel { left: 54px; top: 119px; background: #53c067; }
+    .row-2 h3 { color: #53c067; }
+
+    .row-3 { left: -107px; top: 1030px; width: 1325px; height: 358px; gap: 64px; }
+    .row-3 .imgbox { width: 291px; height: 358px; }
+    .row-3 .imgbox .panel { left: 86px; top: 100px; background: #e4951e; }
+    .row-3 h3 { color: #e4951e; }
+
+    .row-4 { left: 248px; top: 1388px; width: 1363px; height: 369px; flex-direction: row-reverse; gap: 44px; }
+    .row-4 .imgbox { width: 349px; height: 369px; }
+    .row-4 .imgbox .panel { left: 81px; top: 123px; background: #b51515; }
+    .row-4 h3 { color: #b51515; }
+
+    /* ───────── FAQ ───────── */
+    .faq { top: 3729px; height: 874px; background: #000; }
+    .faq h2 {
+      position: absolute;
+      left: 0; right: 0; top: 64px;
+      margin: 0;
+      text-align: center;
+      font-size: 40px; line-height: 46px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .faq .list {
+      position: absolute;
+      left: 80px; top: 150px;
+      width: 1280px;
+      display: flex; flex-direction: column;
+      gap: 40px;
+    }
+    .faq .q {
+      width: 1280px; height: 100px;
+      border-radius: 74px;
+      background: #fbdceb;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 0 60px;
+      font-size: 24px; line-height: 30px;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .faq .q:hover { background: #ffd0e6; transform: translateY(-2px); }
+
+    /* ───────── CONTACT ───────── */
+    .contact { top: 4603px; height: 608px; background: #000; }
+    .contact h2 {
+      position: absolute;
+      left: 0; right: 0; top: 64px;
+      margin: 0;
+      text-align: center;
+      font-size: 40px; line-height: 46px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .contact .form-illu {
+      position: absolute;
+      left: 84px; top: 88px;
+      width: 361px; height: 541px;
+      background: url('assets/chatter-form.png') center / contain no-repeat;
+    }
+    .contact .form {
+      position: absolute;
+      left: 514px; top: 146px;
+      width: 413px;
+      display: flex; flex-direction: column;
+      gap: 16px;
+    }
+    .contact .input {
+      width: 413px; height: 56px;
+      border-radius: 57px;
+      background: #272727;
+      border: 0; outline: 0;
+      padding: 0 33px;
+      font-family: inherit;
+      font-size: 14px; font-weight: 500;
+      color: #fff;
+    }
+    .contact .input::placeholder { color: #bebebe; opacity: 1; }
+    .contact .submit {
+      margin-top: 16px;
+      width: 413px; height: 56px;
+      border-radius: 17px;
+      background: rgba(216,216,216,0.7);
+      color: #000;
+      border: 0;
+      font-family: inherit;
+      font-weight: 500; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+    .contact .submit:hover { background: #fff; }
+    .contact .submit::after {
+      content: "";
+      width: 24px; height: 24px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><line x1=%227%22 y1=%2217%22 x2=%2217%22 y2=%227%22/><polyline points=%227 7 17 7 17 17%22/></svg>') center / contain no-repeat;
+      transform: rotate(45deg);
+    }
+    .contact .tg-channel {
+      position: absolute;
+      left: 616.5px; top: 426px;
+      width: 210px; height: 52px;
+      border-radius: 65px;
+      border: 1px solid #28a8ea;
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500; font-size: 16px;
+      transition: background .15s ease, color .15s ease;
+    }
+    .contact .tg-channel:hover { background: #28a8ea; }
+    .contact .tg-channel .tg-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(#2aabee 0%, #229ed9 100%);
+      display: grid; place-items: center;
+    }
+    .contact .tg-channel .tg-icon svg { width: 18px; height: 18px; }
+
+    /* ───────── FOOTER ───────── */
+    .footer { top: 5211px; height: 100px; background: #fff; color: #131313; }
+    .footer .header { background: #fff; }
+    .footer .header .logo {
+      background: url('assets/logo-tegridy.jpg') left center / contain no-repeat;
+      mix-blend-mode: multiply;
+    }
+    .footer nav a { color: #131313; }
+    .footer nav a:hover { color: #e4951e; }
+  }
+
+  /* ═════════════════════════════════════════════════════════
+     MOBILE  (< 768px)
+     ═════════════════════════════════════════════════════════ */
+  @media (max-width: 767px) {
+    .phone {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #000;
+      overflow: hidden;
+    }
+
+    /* ───────── HEADER ───────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      display: flex; align-items: center;
+      padding: 10px 16px;
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 12px;
+    }
+    .topbar .logo {
+      width: 130px; height: 48px;
+      background: url('assets/logo-tegridy-dark.png') left center / contain no-repeat;
+    }
+    .topbar .right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+    .topbar .tg {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid; place-items: center;
+    }
+    .topbar .tg svg { width: 18px; height: 18px; fill: #131313; }
+    .topbar .menu-btn {
+      width: 36px; height: 36px;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      background: transparent;
+      display: grid; place-items: center;
+      cursor: pointer;
+    }
+    .topbar .menu-btn span,
+    .topbar .menu-btn span::before,
+    .topbar .menu-btn span::after {
+      display: block;
+      width: 16px; height: 2px;
+      background: #fff;
+      position: relative;
+    }
+    .topbar .menu-btn span::before,
+    .topbar .menu-btn span::after { content: ""; position: absolute; left: 0; }
+    .topbar .menu-btn span::before { top: -5px; }
+    .topbar .menu-btn span::after { top: 5px; }
+
+    .menu-drawer {
+      display: none;
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 16px 16px;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .menu-drawer.open { display: flex; }
+    .menu-drawer a {
+      display: block;
+      padding: 12px 6px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .menu-drawer a:last-child { border-bottom: 0; }
+
+    /* ───────── HERO ───────── */
+    .hero {
+      background: #000;
+      padding: 24px 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 800;
+      color: #717171;
+      letter-spacing: -0.01em;
+    }
+    .hero .lede {
+      margin: 0 0 24px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #717171;
+      max-width: 290px;
+    }
+    .hero .cta {
+      display: flex; align-items: center;
+      width: 100%;
+      height: 56px;
+      border-radius: 14px;
+      background: #e4951e;
+      color: #000;
+      padding: 0 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      transition: transform .15s ease;
+    }
+    .hero .cta:active { transform: scale(0.98); }
+    .hero .cta::after {
+      content: "";
+      margin-left: auto;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #000 url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><line x1=%227%22 y1=%2217%22 x2=%2217%22 y2=%227%22/><polyline points=%227 7 17 7 17 17%22/></svg>') center/14px no-repeat;
+      transform: rotate(45deg);
+    }
+    .hero .guy {
+      margin: 24px -20px 0;
+      height: 420px;
+      background: url('assets/chatter-hero.png') center bottom / contain no-repeat;
+    }
+    .stats {
+      display: flex; gap: 18px;
+      padding: 28px 20px 32px;
+      background: #000;
+      flex-wrap: wrap;
+    }
+    .stats .stat { flex: 1 1 100px; }
+    .stats .stat .v { font-size: 28px; font-weight: 500; line-height: 1; color: #fff; white-space: nowrap; }
+    .stats .stat .l { margin-top: 8px; font-size: 13px; line-height: 18px; color: #fff; }
+
+    /* ───────── SERVICES + STATS ───────── */
+    .band {
+      background: #000;
+      padding: 36px 20px 32px;
+    }
+    .band h2 {
+      margin: 0 0 22px;
+      font-size: 22px;
+      line-height: 30px;
+      color: #fff;
+      text-align: center;
+      font-weight: 400;
+    }
+    .band h2 b { font-weight: 700; }
+    .cards {
+      display: flex; flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .card {
+      border-radius: 20px;
+      border: 2px solid #fff;
+      padding: 22px 18px;
+      background: #000;
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px; line-height: 26px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+    .card p {
+      margin: 0;
+      font-size: 14px; line-height: 22px;
+      color: #fff;
+    }
+
+    .carousel {
+      margin: 0 -20px;
+      padding: 0 20px 8px;
+      display: flex; gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .carousel::-webkit-scrollbar { display: none; }
+    .dash {
+      flex: 0 0 240px;
+      height: 300px;
+      border-radius: 16px;
+      background: #16151b;
+      overflow: hidden;
+      scroll-snap-align: start;
+      position: relative;
+    }
+    .dash img {
+      position: absolute;
+      left: 10px; top: 0;
+      width: 220px;
+      height: auto;
+    }
+
+    /* ───────── PROCESS ───────── */
+    .process {
+      background: #131313;
+      color: #fff;
+      padding: 36px 20px 40px;
+    }
+    .process > h2 {
+      margin: 0 0 28px;
+      font-size: 24px; line-height: 30px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+    .step { margin-bottom: 32px; }
+    .step:last-child { margin-bottom: 0; }
+    .step .imgbox {
+      position: relative;
+      width: 200px; height: 280px;
+      margin: 0 auto 18px;
+      overflow: hidden;
+    }
+    .step .imgbox .silhouette {
+      width: 100%; height: 100%;
+      background: url('assets/silhouette.png') center / cover no-repeat;
+    }
+    .step.s1 .imgbox .silhouette { background: url('assets/stan.png') center / cover no-repeat; }
+    .step .imgbox .panel { position: absolute; width: 110px; height: 70px; }
+    .step.s1 .imgbox .panel { left: 40px; top: 100px; background: #0a59a6; }
+    .step.s2 .imgbox .panel { left: 44px; top: 95px; background: #53c067; }
+    .step.s3 .imgbox .panel { left: 48px; top: 88px; background: #e4951e; }
+    .step.s4 .imgbox .panel { left: 50px; top: 100px; background: #b51515; }
+    .step h3 {
+      margin: 0 0 12px;
+      font-size: 24px; line-height: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .step.s1 h3 { color: #0a59a6; }
+    .step.s2 h3 { color: #53c067; }
+    .step.s3 h3 { color: #e4951e; }
+    .step.s4 h3 { color: #b51515; }
+    .step p {
+      margin: 0;
+      font-size: 15px; line-height: 24px;
+      color: #fff;
+    }
+
+    /* ───────── FAQ ───────── */
+    .faq {
+      background: #000;
+      padding: 36px 20px 40px;
+    }
+    .faq h2 {
+      margin: 0 0 24px;
+      text-align: center;
+      font-size: 22px; line-height: 28px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .faq .qlist { display: flex; flex-direction: column; gap: 16px; }
+    .faq details {
+      background: #fbdceb;
+      border-radius: 28px;
+      padding: 18px 22px;
+      cursor: pointer;
+    }
+    .faq summary {
+      list-style: none;
+      font-size: 15px; line-height: 22px;
+      font-weight: 500;
+      color: #000;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+";
+      margin-left: auto;
+      width: 22px; height: 22px;
+      flex: 0 0 22px;
+      border-radius: 50%;
+      background: #000;
+      color: #fbdceb;
+      font-size: 16px; line-height: 22px;
+      text-align: center;
+      transition: transform .2s ease;
+    }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p {
+      margin: 12px 0 0;
+      font-size: 14px; line-height: 22px;
+      font-weight: 400;
+      color: #131313;
+    }
+
+    /* ───────── CONTACT ───────── */
+    .contact {
+      background: #000;
+      padding: 36px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact h2 {
+      margin: 0 0 24px;
+      text-align: center;
+      font-size: 22px; line-height: 28px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .contact .illu {
+      width: 200px; height: 220px;
+      margin: 0 auto 12px;
+      background: url('assets/chatter-form.png') center bottom / contain no-repeat;
+    }
+    .contact form { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin: 0 auto; }
+    .contact input {
+      height: 52px;
+      border-radius: 26px;
+      background: #272727;
+      border: 0; outline: 0;
+      padding: 0 22px;
+      font-family: inherit;
+      font-size: 14px; font-weight: 500;
+      color: #fff;
+    }
+    .contact input::placeholder { color: #bebebe; opacity: 1; }
+    .contact .submit {
+      margin-top: 4px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(216,216,216,0.7);
+      color: #000;
+      border: 0;
+      font-family: inherit;
+      font-weight: 500; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .contact .submit::after {
+      content: "";
+      width: 22px; height: 22px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><line x1=%227%22 y1=%2217%22 x2=%2217%22 y2=%227%22/><polyline points=%227 7 17 7 17 17%22/></svg>') center / contain no-repeat;
+      transform: rotate(45deg);
+    }
+    .contact .tg-channel {
+      margin: 18px auto 0;
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      height: 48px;
+      width: 190px;
+      border-radius: 24px;
+      border: 1px solid #28a8ea;
+      background: transparent;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500; font-size: 15px;
+    }
+    .contact .tg-channel .tg-icon {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(#2aabee 0%, #229ed9 100%);
+      display: grid; place-items: center;
+    }
+    .contact .tg-channel .tg-icon svg { width: 16px; height: 16px; fill: #fff; }
+
+    /* ───────── FOOTER ───────── */
+    .foot {
+      background: #fff;
+      color: #131313;
+      padding: 24px 20px 32px;
+      text-align: center;
+    }
+    .foot .logo {
+      margin: 0 auto 16px;
+      width: 130px; height: 48px;
+      background: url('assets/logo-tegridy.jpg') center / contain no-repeat;
+      mix-blend-mode: multiply;
+    }
+    .foot .links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px;
+    }
+    .foot .links a {
+      font-size: 13px;
+      color: #131313;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ DESKTOP ═══════════════ -->
+<div class="d-shell">
+  <div class="scale-wrap">
+    <div class="page" id="page" data-screen-label="FOR OPERATORS landing">
+
+      <!-- HERO -->
+      <section class="sec hero" data-screen-label="01 Hero">
+        <div class="header">
+          <a class="logo" href="#" aria-label="Tegridy"></a>
+          <nav>
+            <a href="/models">ДЛЯ МОДЕЛЕЙ</a>
+            <a href="#d-services">УСЛУГИ</a>
+            <a href="#d-cases">КЕЙСЫ</a>
+            <a href="#d-faq">FAQ</a>
+            <a href="#d-contact">КОНТАКТЫ</a>
+          </nav>
+          <a class="tg-link" href="#d-contact" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="#131313"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          </a>
+        </div>
+
+        <h1>Преврати переписки<br/>в стабильный доход</h1>
+        <p class="lede">Стань частью агентства, которое делает коммуникацию<br/>источником стабильного дохода</p>
+        <a class="cta" href="#d-contact">Хочу зарабатывать больше</a>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="v">&gt; 100K $</div>
+            <div class="l">оборот агенства</div>
+          </div>
+          <div class="stat">
+            <div class="v">1400$</div>
+            <div class="l">средняя зп
+чатера</div>
+          </div>
+          <div class="stat">
+            <div class="v">&gt; 250</div>
+            <div class="l">человек в день
+на страничках</div>
+          </div>
+        </div>
+
+        <div class="guy" role="img" aria-label="Иллюстрация чатера"></div>
+      </section>
+
+      <!-- SERVICES + STATS -->
+      <section class="sec band-services" id="d-services" data-screen-label="02 Услуги и показатели">
+        <div class="hd">Tegridy обеспечивает чаттерам рост доходов,<br/>используя <b>комплексный подход</b></div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Гибкий график</h3>
+            <p>Работа из любой точки мира — удалённо, со смартфона или ноутбука. Сам выбираешь смены и количество часов в день, под свой ритм жизни.</p>
+          </div>
+          <div class="card">
+            <h3>Рост с сильных анкет</h3>
+            <p>Чаттеры работают с уже сильными профилями. Больше активности и новых мемберов — выше доход, что позволяет максимально монетизировать готовые анкеты.</p>
+          </div>
+          <div class="card">
+            <h3>Бонусы и мотивация</h3>
+            <p>Мы внедряем прозрачную систему бонусов за активность и результативность. Это стимулирует чаттеров работать продуктивнее и повышает доход.</p>
+          </div>
+        </div>
+
+        <div class="hd2" id="d-cases">Наши показатели <b>говорят сами за себя</b></div>
+
+        <div class="carousel">
+          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="sec process" data-screen-label="03 Процесс работы">
+        <h2>Наш процесс работы</h2>
+
+        <div class="row row-1">
+          <div class="imgbox stan">
+            <div class="silhouette"></div>
+            <div class="panel"></div>
+          </div>
+          <div class="body">
+            <h3>Обучение в академии с ментором</h3>
+            <p>Чаттеры проходят структурированное обучение в нашей академии, где ментор подробно объясняет, как эффективно взаимодействовать с мемберами, строить доверие и повышать активность. Курс включает теорию, практические задания и разбор реальных кейсов, чтобы чаттер был готов к реальной работе.</p>
+          </div>
+        </div>
+
+        <div class="row row-2">
+          <div class="imgbox">
+            <div class="silhouette"></div>
+            <div class="panel"></div>
+          </div>
+          <div class="body">
+            <h3>Проверка знаний и навыков</h3>
+            <p>После обучения чаттеры проходят тесты и практические упражнения, чтобы закрепить навыки общения, научиться вовлекать мемберов, применять стратегии эффективно и использовать лучшие практики. Этот этап помогает убедиться, что каждый готов работать продуктивно и приносить максимальный доход.</p>
+          </div>
+        </div>
+
+        <div class="row row-3">
+          <div class="imgbox">
+            <div class="silhouette"></div>
+            <div class="panel"></div>
+          </div>
+          <div class="body">
+            <h3>Кураторство и поддержка</h3>
+            <p>Каждого чаттера сопровождает опытный наставник, который отвечает на вопросы, даёт советы, помогает решать возникающие ситуации и контролирует прогресс. Ментор следит за активностью и результатами, подсказывает, как увеличить вовлечённость мемберов и повысить заработок.</p>
+          </div>
+        </div>
+
+        <div class="row row-4">
+          <div class="imgbox">
+            <div class="silhouette"></div>
+            <div class="panel"></div>
+          </div>
+          <div class="body">
+            <h3>Анализ результатов и фидбек</h3>
+            <p>Мы регулярно отслеживаем показатели активности и вовлечённости чаттера, предоставляем рекомендации по улучшению работы, корректируем стратегию взаимодействия с мемберами и стимулируем активность. Чем выше вовлечённость мемберов, тем больше доход, что позволяет чаттеру постоянно развиваться.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="sec faq" id="d-faq" data-screen-label="04 FAQ">
+        <h2>Раздел FAQ — просто о сложном</h2>
+        <div class="list">
+          <div class="q">Сколько реально можно зарабатывать чаттером?</div>
+          <div class="q">Можно ли работать удалённо и с телефона?</div>
+          <div class="q">Как строится график — это полный день или можно совмещать?</div>
+          <div class="q">Когда и как происходят выплаты?</div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="sec contact" id="d-contact" data-screen-label="05 Свяжитесь с нами">
+        <h2>Свяжитесь с нами</h2>
+        <div class="form-illu" role="presentation"></div>
+
+        <form class="form" onsubmit="event.preventDefault(); alert('Заявка отправлена');">
+          <input class="input" type="text" placeholder="Имя *" required />
+          <input class="input" type="text" placeholder="Ник в тг *" required />
+          <button class="submit" type="submit">Отправить заявку</button>
+        </form>
+
+        <a class="tg-channel" href="#" target="_blank" rel="noopener">
+          <span class="tg-icon">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          </span>
+          наш канал
+        </a>
+      </section>
+
+      <!-- FOOTER -->
+      <section class="sec footer" data-screen-label="06 Footer">
+        <div class="header">
+          <a class="logo" href="#" aria-label="Tegridy"></a>
+          <nav>
+            <a href="/models">ДЛЯ МОДЕЛЕЙ</a>
+            <a href="#d-services">УСЛУГИ</a>
+            <a href="#d-cases">КЕЙСЫ</a>
+            <a href="#d-faq">FAQ</a>
+            <a href="#d-contact">КОНТАКТЫ</a>
+          </nav>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MOBILE ═══════════════ -->
+<div class="m-shell">
+  <div class="phone" data-screen-label="FOR OPERATORS mobile">
+
+    <header class="topbar">
+      <a class="logo" href="#" aria-label="Tegridy"></a>
+      <div class="right">
+        <a class="tg" href="#m-contact" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        </a>
+        <button class="menu-btn" type="button" id="menuBtn" aria-label="Меню"><span></span></button>
+      </div>
+    </header>
+    <nav class="menu-drawer" id="menu">
+      <a href="/models">Для моделей</a>
+      <a href="#m-services">Услуги</a>
+      <a href="#m-cases">Кейсы</a>
+      <a href="#m-faq">FAQ</a>
+      <a href="#m-contact">Контакты</a>
+    </nav>
+
+    <section class="hero" data-screen-label="01 Hero">
+      <h1>Преврати переписки в стабильный доход</h1>
+      <p class="lede">Стань частью агентства, которое делает коммуникацию источником стабильного дохода</p>
+      <a class="cta" href="#m-contact">Хочу зарабатывать больше</a>
+      <div class="guy" role="img" aria-label="Иллюстрация"></div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="v">&gt; 100K $</div>
+        <div class="l">оборот агенства</div>
+      </div>
+      <div class="stat">
+        <div class="v">1400$</div>
+        <div class="l">средняя зп чатера</div>
+      </div>
+      <div class="stat">
+        <div class="v">&gt; 250</div>
+        <div class="l">человек в день на страничках</div>
+      </div>
+    </section>
+
+    <section class="band" id="m-services" data-screen-label="02 Услуги">
+      <h2>Tegridy обеспечивает чаттерам рост доходов, используя <b>комплексный подход</b></h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Гибкий график</h3>
+          <p>Работа из любой точки мира — удалённо, со смартфона или ноутбука. Сам выбираешь смены и количество часов в день.</p>
+        </div>
+        <div class="card">
+          <h3>Рост с сильных анкет</h3>
+          <p>Чаттеры работают с уже сильными профилями. Больше активности и новых мемберов — выше доход, что позволяет максимально монетизировать готовые анкеты.</p>
+        </div>
+        <div class="card">
+          <h3>Бонусы и мотивация</h3>
+          <p>Прозрачная система бонусов за активность и результативность. Стимулирует чаттеров работать продуктивнее и повышает доход.</p>
+        </div>
+      </div>
+
+      <h2 id="m-cases">Наши показатели <b>говорят сами за себя</b></h2>
+      <div class="carousel">
+        <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+        <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+        <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+        <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+        <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+      </div>
+    </section>
+
+    <section class="process" data-screen-label="03 Процесс">
+      <h2>Наш процесс работы</h2>
+
+      <div class="step s1">
+        <div class="imgbox"><div class="silhouette"></div><div class="panel"></div></div>
+        <h3>Обучение в академии с ментором</h3>
+        <p>Чаттеры проходят структурированное обучение в академии, где ментор объясняет, как эффективно взаимодействовать с мемберами и повышать активность. Теория, практика и разбор реальных кейсов.</p>
+      </div>
+
+      <div class="step s2">
+        <div class="imgbox"><div class="silhouette"></div><div class="panel"></div></div>
+        <h3>Проверка знаний и навыков</h3>
+        <p>После обучения — тесты и практика, чтобы закрепить навыки общения, научиться вовлекать мемберов и применять стратегии эффективно. Каждый готов работать продуктивно.</p>
+      </div>
+
+      <div class="step s3">
+        <div class="imgbox"><div class="silhouette"></div><div class="panel"></div></div>
+        <h3>Кураторство и поддержка</h3>
+        <p>Каждого чаттера сопровождает опытный наставник: отвечает на вопросы, даёт советы и контролирует прогресс. Ментор подсказывает, как увеличить вовлечённость мемберов и повысить заработок.</p>
+      </div>
+
+      <div class="step s4">
+        <div class="imgbox"><div class="silhouette"></div><div class="panel"></div></div>
+        <h3>Анализ результатов и фидбек</h3>
+        <p>Регулярно отслеживаем показатели активности и вовлечённости, даём рекомендации и корректируем стратегию. Чем выше вовлечённость, тем больше доход — чаттер постоянно развивается.</p>
+      </div>
+    </section>
+
+    <section class="faq" id="m-faq" data-screen-label="04 FAQ">
+      <h2>Раздел FAQ — просто о&nbsp;сложном</h2>
+      <div class="qlist">
+        <details>
+          <summary>Сколько реально можно зарабатывать чаттером?</summary>
+          <p>В среднем 1400$/мес после периода обучения. Топ-чаттеры — от 2500$ и выше.</p>
+        </details>
+        <details>
+          <summary>Можно ли работать удалённо и с телефона?</summary>
+          <p>Да. Достаточно стабильного интернета и смартфона/ноутбука.</p>
+        </details>
+        <details>
+          <summary>Как строится график — это полный день или можно совмещать?</summary>
+          <p>Гибкие смены по 4–8 часов. Можно совмещать с учёбой или другой работой.</p>
+        </details>
+        <details>
+          <summary>Когда и как происходят выплаты?</summary>
+          <p>Выплаты дважды в месяц, на удобный для тебя способ. Прозрачная статистика дохода в личном кабинете.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="contact" id="m-contact" data-screen-label="05 Свяжитесь с нами">
+      <h2>Свяжитесь с нами</h2>
+      <div class="illu" aria-hidden="true"></div>
+      <form onsubmit="event.preventDefault(); alert('Заявка отправлена');">
+        <input type="text" placeholder="Имя *" required />
+        <input type="text" placeholder="Ник в тг *" required />
+        <button class="submit" type="submit">Отправить заявку</button>
+      </form>
+      <a class="tg-channel" href="#" target="_blank" rel="noopener">
+        <span class="tg-icon">
+          <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        </span>
+        наш канал
+      </a>
+    </section>
+
+    <footer class="foot" data-screen-label="06 Footer">
+      <div class="logo" aria-label="Tegridy"></div>
+      <div class="links">
+        <a href="/models">Для моделей</a>
+        <a href="#m-services">Услуги</a>
+        <a href="#m-cases">Кейсы</a>
+        <a href="#m-faq">FAQ</a>
+        <a href="#m-contact">Контакты</a>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    /* Desktop: scale the 1440px canvas down to the viewport width */
+    var page = document.getElementById('page');
+    var wrap = page ? page.parentElement : null;
+    function fit() {
+      if (!wrap) return;
+      if (window.innerWidth < 768) { wrap.style.height = ''; return; }
+      var vw = wrap.clientWidth;
+      var scale = Math.min(1, vw / 1440);
+      page.style.transform = 'scale(' + scale + ')';
+      page.style.width = '1440px';
+      wrap.style.height = (5311 * scale) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+
+    /* Mobile: burger menu toggle */
+    var btn = document.getElementById('menuBtn');
+    var menu = document.getElementById('menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function () { menu.classList.toggle('open'); });
+      menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') menu.classList.remove('open'); });
+    }
+  })();
+</script>
+</body>
+</html>
