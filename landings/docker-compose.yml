@@ -1,0 +1,139 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: traefik:v2.9
+    command:
+      # Включаем панель управления Traefik (только для тестирования, для продакшена рекомендуется ограничить доступ)
+      - "--api.insecure=true"
+      # Включаем поддержку Docker в качестве провайдера
+      - "--providers.docker=true"
+      # Определяем точки входа для HTTP и HTTPS
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Add HTTP to HTTPS redirect
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      # Certificate configuration
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myresolver.acme.email=courselandinghost@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--providers.docker.exposedByDefault=false"
+      # Enable file provider for static certificates
+      - "--providers.file.directory=/certificates"
+      - "--providers.file.watch=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt:rw"
+      - "./certificates:/certificates:ro"
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./www/emilymell.com:/var/www/emilymell.com:ro
+      - ./www/reginared.com:/var/www/reginared.com:ro
+      - ./www/vikaray.com:/var/www/vikaray.com:ro
+      - ./www/leraruud.com:/var/www/leraruud.com:ro
+      - ./www/vikaregina.com:/var/www/vikaregina.com:ro
+      - ./www/tegridy.agency:/var/www/tegridy.agency:ro
+      - ./www/mirabuns.com:/var/www/mirabuns.com:ro
+      - ./www/kiraaura.com:/var/www/kiraaura.com:ro
+      - ./www/milanafox.com:/var/www/milanafox.com:ro
+      - ./nginx/logs:/var/log/nginx
+    labels:
+      - "traefik.enable=true"
+      # EmillyMell - modified to use static certificate
+      - "traefik.http.routers.emilymell-http.rule=Host(`emilymell.com`)"
+      - "traefik.http.routers.emilymell-http.entrypoints=web"
+      - "traefik.http.routers.emilymell-http.service=emilymell"
+      - "traefik.http.services.emilymell.loadbalancer.server.port=80"
+      - "traefik.http.routers.emilymell.rule=Host(`emilymell.com`)"
+      - "traefik.http.routers.emilymell.entrypoints=websecure"
+      - "traefik.http.routers.emilymell.tls=true"
+      - "traefik.http.routers.emilymell.service=emilymell"
+      - "traefik.http.routers.emilymell.tls.certresolver="  # Remove Let's Encrypt for this domain
+      # ReginaRed
+      - "traefik.http.routers.reginared-http.rule=Host(`reginared.com`)"
+      - "traefik.http.routers.reginared-http.entrypoints=web"
+      - "traefik.http.routers.reginared-http.service=reginared"
+      - "traefik.http.services.reginared.loadbalancer.server.port=80"
+      - "traefik.http.routers.reginared.rule=Host(`reginared.com`)"
+      - "traefik.http.routers.reginared.entrypoints=websecure"
+      - "traefik.http.routers.reginared.tls=true"
+      - "traefik.http.routers.reginared.service=reginared"
+      # VikaRay
+      - "traefik.http.routers.vikaray-http.rule=Host(`vikaray.com`)"
+      - "traefik.http.routers.vikaray-http.entrypoints=web"
+      - "traefik.http.routers.vikaray-http.service=vikaray"
+      - "traefik.http.services.vikaray.loadbalancer.server.port=80"
+      - "traefik.http.routers.vikaray.rule=Host(`vikaray.com`)"
+      - "traefik.http.routers.vikaray.entrypoints=websecure"
+      - "traefik.http.routers.vikaray.tls=true"
+      - "traefik.http.routers.vikaray.service=vikaray"
+      # LeraRuud
+      - "traefik.http.routers.leraruud-http.rule=Host(`leraruud.com`)"
+      - "traefik.http.routers.leraruud-http.entrypoints=web"
+      - "traefik.http.routers.leraruud-http.service=leraruud"
+      - "traefik.http.services.leraruud.loadbalancer.server.port=80"
+      - "traefik.http.routers.leraruud.rule=Host(`leraruud.com`)"
+      - "traefik.http.routers.leraruud.entrypoints=websecure"
+      - "traefik.http.routers.leraruud.tls=true"
+      - "traefik.http.routers.leraruud.tls.certresolver=myresolver"
+      - "traefik.http.routers.leraruud.service=leraruud"
+      # VikaRegina
+      - "traefik.http.routers.vikaregina-http.rule=Host(`vikaregina.com`)"
+      - "traefik.http.routers.vikaregina-http.entrypoints=web"
+      - "traefik.http.routers.vikaregina-http.service=vikaregina"
+      - "traefik.http.services.vikaregina.loadbalancer.server.port=80"
+      - "traefik.http.routers.vikaregina.rule=Host(`vikaregina.com`)"
+      - "traefik.http.routers.vikaregina.entrypoints=websecure"
+      - "traefik.http.routers.vikaregina.tls=true"
+      - "traefik.http.routers.vikaregina.tls.certresolver=myresolver"
+      - "traefik.http.routers.vikaregina.service=vikaregina"
+      # Tegridy Agency
+      - "traefik.http.routers.tegridyagency-http.rule=Host(`tegridy.agency`)"
+      - "traefik.http.routers.tegridyagency-http.entrypoints=web"
+      - "traefik.http.routers.tegridyagency-http.service=tegridyagency"
+      - "traefik.http.services.tegridyagency.loadbalancer.server.port=80"
+      - "traefik.http.routers.tegridyagency.rule=Host(`tegridy.agency`)"
+      - "traefik.http.routers.tegridyagency.entrypoints=websecure"
+      - "traefik.http.routers.tegridyagency.tls=true"
+      - "traefik.http.routers.tegridyagency.tls.certresolver=myresolver"
+      - "traefik.http.routers.tegridyagency.service=tegridyagency"
+      # MiraBuns
+      - "traefik.http.routers.mirabuns-http.rule=Host(`mirabuns.com`)"
+      - "traefik.http.routers.mirabuns-http.entrypoints=web"
+      - "traefik.http.routers.mirabuns-http.service=mirabuns"
+      - "traefik.http.services.mirabuns.loadbalancer.server.port=80"
+      - "traefik.http.routers.mirabuns.rule=Host(`mirabuns.com`)"
+      - "traefik.http.routers.mirabuns.entrypoints=websecure"
+      - "traefik.http.routers.mirabuns.tls=true"
+      - "traefik.http.routers.mirabuns.tls.certresolver=myresolver"
+      - "traefik.http.routers.mirabuns.service=mirabuns"
+      # KiraAura
+      - "traefik.http.routers.kiraaura-http.rule=Host(`kiraaura.com`)"
+      - "traefik.http.routers.kiraaura-http.entrypoints=web"
+      - "traefik.http.routers.kiraaura-http.service=kiraaura"
+      - "traefik.http.services.kiraaura.loadbalancer.server.port=80"
+      - "traefik.http.routers.kiraaura.rule=Host(`kiraaura.com`)"
+      - "traefik.http.routers.kiraaura.entrypoints=websecure"
+      - "traefik.http.routers.kiraaura.tls=true"
+      - "traefik.http.routers.kiraaura.tls.certresolver=myresolver"
+      - "traefik.http.routers.kiraaura.service=kiraaura"
+      # MilanaFox
+      - "traefik.http.routers.milanafox-http.rule=Host(`milanafox.com`)"
+      - "traefik.http.routers.milanafox-http.entrypoints=web"
+      - "traefik.http.routers.milanafox-http.service=milanafox"
+      - "traefik.http.services.milanafox.loadbalancer.server.port=80"
+      - "traefik.http.routers.milanafox.rule=Host(`milanafox.com`)"
+      - "traefik.http.routers.milanafox.entrypoints=websecure"
+      - "traefik.http.routers.milanafox.tls=true"
+      - "traefik.http.routers.milanafox.tls.certresolver=myresolver"
+      - "traefik.http.routers.milanafox.service=milanafox"
+    restart: always

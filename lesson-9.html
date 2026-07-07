@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9 урок. Чек-лист рабочего дня + тест — Академия операторов</title>
+<link rel="icon" href="assets/mascots/green.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{document.documentElement.setAttribute('data-acad-theme',localStorage.getItem('tegridy_academy_theme')||'dark');}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="acad-shell">
+  <div class="acad-topbar">
+    <button class="topbar__burger" type="button" data-menu-open aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="topbar__brand" href="index.html">
+      <span class="topbar__brand-mascots">
+        <img src="assets/mascots/green.png" alt="" style="height:17px">
+        <img src="assets/mascots/orange.png" alt="" style="height:16px">
+        <img src="assets/mascots/red.png" alt="" style="height:17px">
+        <img src="assets/mascots/blue.png" alt="" style="height:17px">
+      </span>
+      <span class="topbar__brand-name">tegridy agency</span>
+    </a>
+    <span class="topbar__spacer"></span>
+    <button class="topbar__theme" type="button" data-theme-toggle aria-label="Сменить тему">
+      <span class="icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></span>
+      <span class="icon-sun"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+    </button>
+  </div>
+
+  <!-- ============ Mobile overlay ============ -->
+  <button class="acad-overlay" type="button" data-menu-close aria-label="Закрыть меню" hidden></button>
+
+  <!-- ============ Sidebar ============ -->
+  <aside class="acad-side" data-active="l9" data-open="false">
+    <a class="side__brand" href="index.html">
+      <span class="side__brand-mascots">
+        <img src="assets/mascots/green.png" alt="" style="height:21px">
+        <img src="assets/mascots/orange.png" alt="" style="height:20px">
+        <img src="assets/mascots/red.png" alt="" style="height:21px">
+        <img src="assets/mascots/blue.png" alt="" style="height:21px">
+      </span>
+      <span class="side__brand-text">
+        <span class="side__brand-name">tegridy agency</span>
+        <span class="side__brand-sub">Академия операторов</span>
+      </span>
+    </a>
+
+    <nav class="side__nav">
+      <a class="nav-item nav-item--home" data-nav="home" href="index.html">
+        <span class="nav-item__icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
+        </span>
+        <span class="nav-item__label">Главная</span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-green"></span><span>1 День - Знакомство</span></div>
+      <a class="nav-item" data-nav="l1" data-lesson="l1" href="lesson-1.html">
+        <span class="nav-item__num is-green">1</span>
+        <span class="nav-item__label">Знакомство с командой</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l2" data-lesson="l2" href="lesson-2.html">
+        <span class="nav-item__num is-green">2</span>
+        <span class="nav-item__label">Рабочие задачи и условия сотрудничества</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l3" data-lesson="l3" href="lesson-3.html">
+        <span class="nav-item__num is-green">3</span>
+        <span class="nav-item__label">Изучение платформы</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l4" data-lesson="l4" href="lesson-4.html">
+        <span class="nav-item__num is-green">4</span>
+        <span class="nav-item__label">Важные правила агенства + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-orange"></span><span>2 День - Чаттинг</span></div>
+      <a class="nav-item" data-nav="l5" data-lesson="l5" href="lesson-5.html">
+        <span class="nav-item__num is-orange">5</span>
+        <span class="nav-item__label">Психология продаж</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l6" data-lesson="l6" href="lesson-6.html">
+        <span class="nav-item__num is-orange">6</span>
+        <span class="nav-item__label">Плавный чаттинг и правила продаж</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l7" data-lesson="l7" href="lesson-7.html">
+        <span class="nav-item__num is-orange">7</span>
+        <span class="nav-item__label">Правила платформы + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-blue"></span><span>3 День - Закрепление</span></div>
+      <a class="nav-item" data-nav="l8" data-lesson="l8" href="lesson-8.html">
+        <span class="nav-item__num is-blue">8</span>
+        <span class="nav-item__label">Продажа кастомных видео</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l9" data-lesson="l9" href="lesson-9.html">
+        <span class="nav-item__num is-blue">9</span>
+        <span class="nav-item__label">Чек-лист рабочего дня + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-red"></span><span>🗒 Методички для работы</span></div>
+      <a class="nav-item" data-nav="m1" href="metodichka-1.html">
+        <span class="nav-item__icon nav-item__icon--file">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"></path><path d="M14 3v5h5"></path></svg>
+        </span>
+        <span class="nav-item__label">Что делать если не хватает контента на странице?</span>
+      </a>
+      <a class="nav-item" data-nav="m2" href="metodichka-2.html">
+        <span class="nav-item__icon nav-item__icon--file">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"></path><path d="M14 3v5h5"></path></svg>
+        </span>
+        <span class="nav-item__label">Ведение стримов на страницах</span>
+      </a>
+    </nav>
+
+    <div class="side__foot">
+      <div class="side__progress">
+        <div class="side__progress-head">
+          <span class="side__progress-label">Прогресс обучения</span>
+          <span class="side__progress-count"><span data-done-count>0</span> из 9</span>
+        </div>
+        <div class="bar"><div class="bar__fill" data-progress-fill></div></div>
+      </div>
+      <button class="theme-btn" type="button" data-theme-toggle>
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="theme-label-dark">Светлая тема</span>
+        <span class="theme-label-light">Тёмная тема</span>
+      </button>
+    </div>
+  </aside>
+  <main class="acad-main">
+    <div style="display:flex;gap:46px;justify-content:center;padding:clamp(18px,3.5vw,44px) clamp(16px,4vw,52px) 90px">
+      <article data-page-id="l9" data-screen-label="9 урок. Чек-лист рабочего дня + тест" style="width:100%;max-width:var(--cw,764px);min-width:0;font-size:calc(16.5px * var(--fsx,1))">
+        <img src="assets/l9/banner.jpg" alt="" style="width:100%;aspect-ratio:5/2;object-fit:cover;border-radius:18px;border:1px solid var(--border);display:block;background:var(--surface)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:20px 0 0">
+          <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:100px;background:var(--blueT);color:var(--blueA);font:700 12px/1 'Golos Text',sans-serif">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--blueA)"></span>
+            <span>3 День - Закрепление</span>
+          </span>
+          <span style="display:inline-flex;align-items:center;padding:6px 12px;border-radius:100px;border:1px solid var(--border);color:var(--muted);font:500 12px/1 'Golos Text',sans-serif">≈ 2 мин чтения</span>
+          <div data-when-done hidden style="display:contents">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:100px;background:var(--greenT);color:var(--green);font:700 12px/1 'Golos Text',sans-serif">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span>Пройден</span>
+            </span>
+          </div>
+        </div>
+        <h1 style="font:900 clamp(27px,4.2vw,37px)/1.16 'Nunito',sans-serif;letter-spacing:-.015em;margin:14px 0 26px;text-wrap:balance">9 урок. Чек-лист рабочего дня + тест</h1>
+
+        <div><h2 id="h-1" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px">НАЧАЛО СМЕНЫ</h2><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em"> Ровно в назначенное время выйти на смену и поставить в чат <strong style="color:var(--text);font-weight:600">“смены” + имена моделей</strong><figure style="margin:1.3em auto;text-align:center"><img src="assets/l9/Снимок_экрана_2025-06-20_в_20.20.18.png" alt="" loading="lazy" style="width:min(240px,100%);height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure></li><li style="line-height:1.62;padding-left:.15em"> Ответить на входящие сообщения</li><li style="line-height:1.62;padding-left:.15em"> Проверить новых мемберов с прошлой смены все ли обработаны и обработать </li><li style="line-height:1.62;padding-left:.15em"> Запустить рассылку (удалить прошлую)</li><li style="line-height:1.62;padding-left:.15em"> Написать от руки мемберам в листе No mass dm (проверить можно ли им писать) </li></ul><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h2 id="h-2" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px">В ТЕЧЕНИИ СМЕНЫ</h2><div style="display:flex;gap:13px;margin:1.35em 0;padding:1.05em 1.2em;border-radius:15px;background:var(--tint-yellow);border:1px solid var(--border)"><div style="flex:none;padding-top:.1em"><span style="display:flex;width:1.5em;height:1.5em;align-items:center;justify-content:center;border-radius:50%;background:var(--blueA);color:#fff;font-size:.75em;font-weight:700">✓</span></div><div style="flex:1;min-width:0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Каждое новое сообщение <strong style="color:var(--text);font-weight:600">не</strong> должно оставаться без ответа дольше <strong style="color:var(--text);font-weight:600">5–10 минут</strong>. </p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Каждый новый подписчик должен быть обработан в течение <strong style="color:var(--text);font-weight:600">10-15 минут</strong> после подписки. В исключительных случаях допускается задержка до <strong style="color:var(--text);font-weight:600">15–20 минут</strong>, если есть объективные причины.</p></div></div><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em"> Каждое новое сообщение — не дольше <strong style="color:var(--text);font-weight:600">5–10 минут без ответа</strong></li><li style="line-height:1.62;padding-left:.15em"> Каждый новый подписчик — обработан в течение <strong style="color:var(--text);font-weight:600">10 минут </strong><em>Прочитать описание профиля фана и использовать это в приветственном сообщении</em></li><li style="line-height:1.62;padding-left:.15em"> Добавить новых фанатов в <strong style="color:var(--text);font-weight:600">соответствующие списки</strong></li><li style="line-height:1.62;padding-left:.15em"> Прописать имя (хобби, возраст, страна) и основные фетиши</li><li style="line-height:1.62;padding-left:.15em"> Все важные детали и поведение — в <strong style="color:var(--text);font-weight:600">заметках</strong></li><li style="line-height:1.62;padding-left:.15em"> Перед любым сообщением — проверять заметки</li><li style="line-height:1.62;padding-left:.15em"> Бесплатная рассылка <strong style="color:var(--text);font-weight:600">на всех</strong> — интересный текст с вопросом</li><li style="line-height:1.62;padding-left:.15em"> Повтор рассылки через 1–2 часа (смотря какой актив), минимум 2–3 раза за смену</li><li style="line-height:1.62;padding-left:.15em"> Работать с фанами по <strong style="color:var(--text);font-weight:600">приоритету</strong> </li><li style="line-height:1.62;padding-left:.15em"> Отвечать креативно и с вовлечением </li><li style="line-height:1.62;padding-left:.15em"> Поддерживать активные диалоги, не бросать их</li><li style="line-height:1.62;padding-left:.15em"> Если нет сменщика — <strong style="color:var(--text);font-weight:600">пожелать спокойной ночи</strong> всем активным</li><li style="line-height:1.62;padding-left:.15em"> Обновлять списки, если фан проявляет новые интересы или делает покупку</li><li style="line-height:1.62;padding-left:.15em"> Сегментировать фанатов вручную, добавлять “хз” или $ в ник</li><li style="line-height:1.62;padding-left:.15em"> Добавить новых покупателей в “платящие”</li><li style="line-height:1.62;padding-left:.15em"> Обновить заметки по ключевым диалогам</li><li style="line-height:1.62;padding-left:.15em"> Отметить, если фан запросил кастом, но не оплатил</li></ul><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h2 id="h-3" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px"><strong style="color:var(--text);font-weight:600">В КОНЦЕ СМЕНЫ </strong></h2><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em"> Почистить список <strong style="color:var(--text);font-weight:600">“общаюсь”</strong></li><li style="line-height:1.62;padding-left:.15em"> Поставить <strong style="color:var(--text);font-weight:600">-</strong> в чат <strong style="color:var(--text);font-weight:600">“смены”</strong><figure style="margin:1.3em auto;text-align:center"><img src="assets/l9/Снимок_экрана_2025-06-20_в_20.21.43.png" alt="" loading="lazy" style="width:min(192px,100%);height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure></li></ul><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em"> Сделать отчёт в Asana СРАЗУ после смены<br>(если отчет придет через 2-3 часа после окончания смены его проверять не будут и в зп он не идет) </li><li style="line-height:1.62;padding-left:.15em"> Зайти в смену дискорд-сервера и передать информацию о смене другому оператору’</li></ul><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h2 id="h-4" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px">Как делать отчет? </h2><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><a href="http://fanpilot.org/" target="_blank" rel="noopener" style="color:var(--linkc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px">fanpilot.org</a> - это наш портал, где выгружаются ВСЕ транзакции со всех страничек. </p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Почты + пароли для него выдает тимлид (их надо запросить ДО смены). ё</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Процесс закрепления продаж за собой прост, у вас есть две кнопки:</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600"><span style="border-bottom:2px solid var(--blueA);padding-bottom:1px;font-weight:500;color:var(--text)">claim</span></strong> - забрать продажу себе<br><strong style="color:var(--text);font-weight:600"><span style="border-bottom:2px solid var(--blueA);padding-bottom:1px;font-weight:500;color:var(--text)">divide</span></strong> - разделить продажу с другими чаттерами, вы сможете выбрать конкретного.</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">При случайном клэйме вы разумеется его можете отменить (это отслеживается) </p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Также в меню слева есть специальный генератор отчетов для вас, система автоматически подсчитает ваши продажи за смену и выдаст тотал. Ваша задача - только ввести этот тотал в асане в статусы</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600">Как сделать отчет в асана? 👇🏻</strong></p><div style="display:flex;gap:14px;flex-wrap:wrap;margin:1.2em 0;align-items:flex-start"><div style="flex:1 1 240px;min-width:0"><figure style="margin:1.3em auto;text-align:center"><img src="assets/l9/0b887ca4-29b8-402f-a8cc-72c215501db7.png" alt="" loading="lazy" style="width:min(425px,100%);height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure></div><div style="flex:1 1 240px;min-width:0"><figure style="margin:1.3em auto;text-align:center"><img src="assets/l9/Снимок_экрана_2026-01-29_в_03.46.42.png" alt="" loading="lazy" style="width:min(336px,100%);height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure></div></div><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">1. Сверху расписания наводим на менюшку, где сейчас написано &quot;по плану&quot; и выбираем далее из списка &quot;Обновить статус&quot;</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">2. Нажми:</p><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Тыкаем &quot;по плану&quot;, если смена от 15<strong style="color:var(--text);font-weight:600">0$</strong></li><li style="line-height:1.62;padding-left:.15em">Тыкаем &quot;под угрозой&quot;, если сумма от 50<strong style="color:var(--text);font-weight:600">$ до 149$</strong></li><li style="line-height:1.62;padding-left:.15em">Тыкаем &quot;отстает&quot;, если меньше <strong style="color:var(--text);font-weight:600">50$</strong></li></ul><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">3. Указываем в заголовке <strong style="color:var(--text);font-weight:600">дату</strong> и какая смена - <strong style="color:var(--text);font-weight:600">утро/вечер/ночь</strong></p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">4. Пишем общую сумму продаж</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">5. Жмем &quot;отправить справа сверху”</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><em><span style="color:var(--hl-red)"><span style="background:var(--tint-red);border-radius:4px;padding:0 3px">*Если чек красный пишем пару слов, что было не так на смене. Например плохой актив или много бомжей</span></span></em></p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><div id="h-5" style="margin:1.8em 0 .6em;scroll-margin-top:90px"><a href="https://forms.gle/oV6B6uy2Vu86sYNe9" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;padding:15px 28px;border-radius:14px;background:var(--blueA);color:#fff;text-decoration:none;font:800 16px/1 'Nunito',sans-serif;letter-spacing:.02em;box-shadow:0 8px 22px var(--blueT)"><span>ТЕСТ</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></div><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">(кликабельно) </p></div>
+
+        <div style="margin-top:48px;border-top:1px solid var(--border);padding-top:28px;display:flex;flex-direction:column;gap:22px">
+          <div data-when-not-done style="display:contents">
+            <button data-toggle-done style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:none;border-radius:13px;background:var(--blueA);color:#fff;cursor:pointer;font:800 15px/1 'Nunito',sans-serif;letter-spacing:.01em;box-shadow:0 6px 18px var(--blueT)" style-hover="filter:brightness(1.08)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span>Отметить урок пройденным</span>
+            </button>
+          </div>
+          <div data-when-done hidden style="display:contents">
+            <div style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;background:var(--greenT);border:1px solid rgba(83,192,103,.25)">
+              <img src="assets/mascots/blue.png" alt="" style="height:46px;width:auto">
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+                <span style="font:800 16px/1.2 'Nunito',sans-serif;color:var(--text)">Урок пройден!</span>
+                <span style="font:400 13px/1.4 'Golos Text',sans-serif;color:var(--text2)">Прогресс сохранён. Можно двигаться дальше.</span>
+              </div>
+              <button data-toggle-done style="padding:9px 14px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;font:500 12px/1 'Golos Text',sans-serif" style-hover="color:var(--text)">Снять отметку</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="lesson-8.html" style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-decoration:none;color:var(--text)" style-hover="background:var(--side-hover)"><span style="font:500 11.5px/1 'Golos Text',sans-serif;color:var(--muted)">← Назад</span><span style="font:600 13.5px/1.4 'Golos Text',sans-serif">8 урок. Продажа кастомных видео</span></a> <a href="metodichka-1.html" style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px;align-items:flex-end;text-align:right;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-decoration:none;color:var(--text)" style-hover="background:var(--side-hover)"><span style="font:500 11.5px/1 'Golos Text',sans-serif;color:var(--muted)">Дальше →</span><span style="font:600 13.5px/1.4 'Golos Text',sans-serif">Что делать если не хватает контента на странице?</span></a></div>
+        </div>
+      </article>
+
+      <nav class="acad-toc">
+        <div style="font:700 10.5px/1 'Golos Text',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:6px 10px 10px">Содержание</div>
+        <div style="display:flex;flex-direction:column;border-left:1px solid var(--border);padding-left:4px"><a href="#h-1" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">НАЧАЛО СМЕНЫ</a><a href="#h-2" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">В ТЕЧЕНИИ СМЕНЫ</a><a href="#h-3" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">В КОНЦЕ СМЕНЫ</a><a href="#h-4" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Как делать отчет?</a><a href="#h-5" style="display:block;padding:6px 8px 6px 22px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">ТЕСТ</a></div>
+      </nav>
+    </div>
+  </main>
+</div>
+<script src="app.js" defer></script>
+<script src="lesson.js" defer></script>
+</body>
+</html>

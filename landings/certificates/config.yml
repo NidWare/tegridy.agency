@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /certificates/emilymell.com.crt
+      keyFile: /certificates/emilymell.com.key 

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kira Aura</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #fed4e0;
+      --text: #000000;
+      --primary: #e275ff;
+      --primary-text: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Minimal Swiper CSS (inlined) */
+    .swiper{overflow:hidden;position:relative}
+    .swiper-wrapper{display:flex;transition-property:transform;box-sizing:content-box}
+    .swiper-slide{flex-shrink:0;position:relative;transition-property:transform}
+    .swiper-3d,.swiper-3d .swiper-slide{transform-style:preserve-3d}
+    .swiper-3d .swiper-slide-shadow-left,.swiper-3d .swiper-slide-shadow-right{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:10;border-radius:12px}
+    .swiper-3d .swiper-slide-shadow-left{background:linear-gradient(to left,rgba(0,0,0,.5),transparent)}
+    .swiper-3d .swiper-slide-shadow-right{background:linear-gradient(to right,rgba(0,0,0,.5),transparent)}
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 24px;
+    }
+
+    @media (min-width: 640px) {
+      main {
+        padding-top: 96px;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Slider Container */
+    .slider-container {
+      margin-bottom: 12px;
+      min-height: 240px;
+    }
+
+    .swiper {
+      width: 100vw; 
+      max-width: 640px;
+      height: 240px;
+      margin: auto;
+      padding: 8px 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 165px;
+      height: 220px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .swiper-slide img.loaded {
+      opacity: 1;
+    }
+
+    .swiper {
+      transition: opacity 0.3s ease;
+    }
+
+    /* Desktop - larger slides */
+    @media (min-width: 640px) {
+      .slider-container {
+        min-height: 280px;
+      }
+      
+      .swiper {
+        height: 280px;
+      }
+      
+      .swiper-slide {
+        width: 200px;
+        height: 260px;
+      }
+    }
+
+    /* Loading skeleton */
+    .slider-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skeleton-slide {
+      width: 140px;
+      height: 190px;
+      background: linear-gradient(90deg, #f0d0e0 25%, #fce0ec 50%, #f0d0e0 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+      border-radius: 12px;
+    }
+
+    .skeleton-slide:nth-child(2) {
+      width: 165px;
+      height: 220px;
+    }
+
+    @keyframes skeleton-loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Info Section */
+    .info-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0 8px;
+      text-align: center;
+      margin: auto;
+    }
+
+    .name {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin: 6px 0;
+      word-break: break-all;
+    }
+
+    .status {
+      margin-top: 2px;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 640px) {
+      .status {
+        font-size: 1.5rem;
+      }
+    }
+
+    .status img {
+      display: inline;
+      width: 20px;
+      height: 15px;
+      vertical-align: middle;
+    }
+
+    /* Links Section */
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      width: 100%;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 350px;
+      padding: 12px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .link-btn:hover {
+      transform: scale(1.02);
+    }
+
+    @media (min-width: 640px) {
+      .link-btn {
+        min-width: 350px;
+      }
+    }
+
+    .link-btn.primary {
+      background: var(--primary);
+      color: var(--primary-text);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .link-btn.telegram {
+      background: #3baee2;
+      color: #ffffff;
+    }
+
+    .link-btn.x-twitter {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .link-btn img {
+      width: 18px;
+      height: 18px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(226, 117, 255, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(226, 117, 255, 0);
+      }
+    }
+
+    /* Promo Text */
+    .promo {
+      margin-top: 16px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--primary);
+      line-height: 1.5;
+    }
+
+    @media (min-width: 640px) {
+      .promo {
+        margin-top: 24px;
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 48px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      footer {
+        margin-top: 32px;
+      }
+    }
+
+    footer a {
+      font-size: 0.75rem;
+      opacity: 0.5;
+      font-weight: normal;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Discount Timer */
+    .discount-timer {
+      background: linear-gradient(135deg, #e275ff 0%, #ff75c3 50%, #e275ff 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
+      border-radius: 24px;
+      padding: 16px 24px;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      max-width: 350px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(226, 117, 255, 0.4), 
+                  0 0 60px rgba(226, 117, 255, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .discount-timer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+      );
+      animation: shimmer 2s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+
+    .timer-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .timer-icon {
+      font-size: 1.5rem;
+      animation: bounce 1s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .timer-title {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .timer-discount {
+      color: #fff700;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 247, 0, 0.3); }
+      100% { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 247, 0, 0.6); }
+    }
+
+    .timer-countdown {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .timer-block {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 10px 14px;
+      min-width: 60px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .timer-value {
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .timer-label {
+      display: block;
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .timer-separator {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      animation: blink 1s ease infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .timer-expired {
+      text-align: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 10px 0;
+    }
+
+    @media (min-width: 640px) {
+      .discount-timer {
+        padding: 20px 28px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      
+      .timer-title {
+        font-size: 1.1rem;
+      }
+      
+      .timer-discount {
+        font-size: 2rem;
+      }
+      
+      .timer-block {
+        min-width: 70px;
+        padding: 12px 16px;
+      }
+      
+      .timer-value {
+        font-size: 2rem;
+      }
+      
+      .timer-label {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="content">
+      <!-- Photo Slider -->
+      <div class="slider-container">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="slider-loading"><div class="skeleton-slide"></div><div class="skeleton-slide"></div><div class="skeleton-slide"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <span class="name">Kira Moon Shines 💫</span>
+
+        <p class="status">
+          🟢 Online Now 🟢<br>
+          📍 Serbia <img src="https://flagcdn.com/w20/rs.png" alt="Serbia Flag">
+        </p>
+
+        <!-- Links -->
+    <div class="links">
+          <a href="https://onlyfans.com/kiramoonshine/c1" target="_blank" class="link-btn primary">
+            My Exclusive Content 💦
+          </a>
+        </div>
+
+        <!-- Discount Timer -->
+        <div class="discount-timer" id="discountTimer">
+          <div class="timer-header">
+            <span class="timer-icon">🔥</span>
+            <span class="timer-title">Special Offer Ends In</span>
+            <span class="timer-icon">🔥</span>
+          </div>
+          <!-- <div class="timer-discount">TODAY ONLY!</div> -->
+          <div class="timer-countdown" id="timerCountdown">
+            <div class="timer-block">
+              <span class="timer-value" id="hours">00</span>
+              <span class="timer-label">Hours</span>
+            </div>
+            <span class="timer-separator">:</span>
+            <div class="timer-block">
+              <span class="timer-value" id="minutes">00</span>
+              <span class="timer-label">Minutes</span>
+            </div>
+            <span class="timer-separator">:</span>
+            <div class="timer-block">
+              <span class="timer-value" id="seconds">00</span>
+              <span class="timer-label">Seconds</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="#">© 2026 Kira Aura</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script>
+    // ПРОГРЕССИВНАЯ ЗАГРУЗКА ФОТО
+    const W = document.querySelector('.swiper-wrapper');
+    const swiperEl = document.querySelector('.swiper');
+    const photos = [];
+    let swiper = null;
+    let started = false;
+    let updated = false;
+    let checked = 0;
+    const isMobile = window.innerWidth < 640;
+    const size = isMobile ? 'sm' : 'md';
+    const MIN_START = 3;  // Минимум для старта
+    const MAX_PHOTOS = 9; // Максимум уникальных фото
+
+    // Паттерны для автопоиска
+    const patterns = [
+      ...Array.from({length: 30}, (_, i) => `IMG_${6440 + i}`),
+      ...Array.from({length: 20}, (_, i) => `${i + 1}`),
+      ...Array.from({length: 10}, (_, i) => `photo${i + 1}`),
+      'z', 'a', 'b', 'main', 'cover'
+    ];
+
+    // Конфиг Swiper
+    const swiperConfig = {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 15,
+      loop: true,
+      speed: 400,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      coverflowEffect: { rotate: 5, stretch: 0, depth: 80, scale: 0.9, slideShadows: false },
+    };
+
+    // Создание слайдов
+    function buildSlides(photoList) {
+      let s = [...photoList];
+      while (s.length < 9) s = [...s, ...photoList];
+      return s.map(name => `
+        <div class="swiper-slide">
+          <img src="img/${name}-${size}.webp" alt="" onload="this.classList.add('loaded')">
+        </div>
+      `).join('');
+    }
+
+    // Первый запуск слайдера (3 фото)
+    function startSlider() {
+      if (started || photos.length < MIN_START) return;
+      started = true;
+      
+      W.innerHTML = buildSlides(photos);
+      
+      const init = () => {
+        if (typeof Swiper === 'undefined') { setTimeout(init, 50); return; }
+        swiper = new Swiper('.swiper', { ...swiperConfig, loopedSlides: 9 });
+      };
+      init();
+    }
+
+    // Плавное обновление слайдера (когда 9 фото)
+    function updateSlider() {
+      if (!started || updated || photos.length < MAX_PHOTOS || !swiper) return;
+      updated = true;
+      
+      // Запоминаем позицию
+      const currentIndex = swiper.realIndex;
+      
+      // Плавно скрываем
+      swiperEl.style.transition = 'opacity 0.3s ease';
+      swiperEl.style.opacity = '0.5';
+      
+      setTimeout(() => {
+        // Останавливаем и уничтожаем
+        swiper.autoplay.stop();
+        swiper.destroy(true, true);
+        
+        // Новые слайды (без дублирования - у нас 9 уникальных)
+        W.innerHTML = buildSlides(photos.slice(0, MAX_PHOTOS));
+        
+        // Пересоздаём
+        swiper = new Swiper('.swiper', { 
+          ...swiperConfig, 
+          loopedSlides: MAX_PHOTOS,
+          initialSlide: currentIndex % MAX_PHOTOS 
+        });
+        
+        // Плавно показываем
+        swiperEl.style.opacity = '1';
+      }, 300);
+    }
+
+    // Загрузка фото
+    patterns.forEach(name => {
+      const img = new Image();
+      const done = () => {
+        checked++;
+        // Старт при 3+ фото
+        if (!started && photos.length >= MIN_START) startSlider();
+        // Обновление при 9 фото
+        if (started && !updated && photos.length >= MAX_PHOTOS) {
+          setTimeout(updateSlider, 500); // Небольшая задержка для плавности
+        }
+        // Финальная проверка
+        if (checked >= patterns.length && !started && photos.length) startSlider();
+      };
+      img.onload = () => {
+        if (!photos.includes(name) && photos.length < MAX_PHOTOS) photos.push(name);
+        done();
+      };
+      img.onerror = done;
+      img.src = `img/${name}-${size}.webp`;
+    });
+
+    // Фоллбэк через 1.5 сек
+    setTimeout(() => {
+      if (!started && photos.length) startSlider();
+      else if (!started) W.innerHTML = '<div style="text-align:center;padding:50px;color:#999">No photos</div>';
+    }, 1500);
+
+    // ============================================
+    // ТАЙМЕР-СКИДКА С СОХРАНЕНИЕМ В COOKIE
+    // ============================================
+    
+    const TIMER_DURATION = 1 * 60 * 60 * 1000; // 1 час в миллисекундах
+    const COOKIE_NAME = 'discount_timer_end';
+    
+    // Функции для работы с куками
+    function setCookie(name, value, days) {
+      const expires = new Date();
+      expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+    }
+    
+    function getCookie(name) {
+      const nameEQ = name + '=';
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let c = cookies[i].trim();
+        if (c.indexOf(nameEQ) === 0) {
+          return c.substring(nameEQ.length, c.length);
+        }
+      }
+      return null;
+    }
+    
+    function deleteCookie(name) {
+      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+    }
+    
+    // Получаем или устанавливаем время окончания таймера
+    function getTimerEndTime() {
+      const savedEndTime = getCookie(COOKIE_NAME);
+      
+      if (savedEndTime) {
+        const endTime = parseInt(savedEndTime, 10);
+        // Проверяем, не истёк ли таймер
+        if (endTime > Date.now()) {
+          return endTime;
+        }
+        // Таймер истёк, удаляем куку
+        deleteCookie(COOKIE_NAME);
+      }
+      
+      // Создаём новый таймер на 3 часа
+      const newEndTime = Date.now() + TIMER_DURATION;
+      setCookie(COOKIE_NAME, newEndTime.toString(), 7); // Кука живёт 7 дней
+      return newEndTime;
+    }
+    
+    // Форматирование числа с ведущим нулём
+    function pad(num) {
+      return num.toString().padStart(2, '0');
+    }
+    
+    // Обновление таймера
+    function updateTimer() {
+      const endTime = getTimerEndTime();
+      const now = Date.now();
+      const remaining = endTime - now;
+      
+      if (remaining <= 0) {
+        // Таймер истёк
+        const countdown = document.getElementById('timerCountdown');
+        countdown.innerHTML = '<div class="timer-expired">⏰ Offer Expired! Refresh for new deal ⏰</div>';
+        return;
+      }
+      
+      const hours = Math.floor(remaining / (1000 * 60 * 60));
+      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+      
+      document.getElementById('hours').textContent = pad(hours);
+      document.getElementById('minutes').textContent = pad(minutes);
+      document.getElementById('seconds').textContent = pad(seconds);
+      
+      // Обновляем каждую секунду
+      setTimeout(updateTimer, 1000);
+    }
+    
+    // Запускаем таймер
+    updateTimer();
+  </script>
+</body>
+
+</html>

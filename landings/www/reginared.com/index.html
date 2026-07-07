@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regina Red</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Сброс базовых стилей */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Стиль для body с фоном */
+    body {
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Основное фото */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+      background: url('z.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    /* Фоновый эффект */
+    .background-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+      background: url('z.jpg') no-repeat center center;
+      background-size: cover;
+      filter: blur(30px) brightness(0.7);
+      transform: scale(1.1);
+    }
+
+    /* Размытые края */
+    @media (min-width: 601px) {
+      body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0) 300px,
+            rgba(0, 0, 0, 0) calc(50% + 300px),
+            rgba(0, 0, 0, 0.95));
+        pointer-events: none;
+      }
+    }
+
+    /* Контейнер для контента с затемнённым фоном */
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px 20px;
+      border-radius: 20px;
+      text-align: center;
+      width: 85%;
+      max-width: 300px;
+      backdrop-filter: blur(5px);
+      margin-top: 120px;
+    }
+
+    /* Заголовок с ником модели */
+    h1 {
+      font-size: 1.6em;
+      margin-bottom: 4px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Описание модели */
+    p {
+      font-size: 0.9em;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+    }
+
+    /* Блок ссылок */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    /* Стили для кнопок-ссылок */
+    .link-button {
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      padding: 12px 30px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-size: 1.2em;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.3);
+    }
+
+    .link-button:hover {
+      transform: scale(1.02);
+      background: linear-gradient(45deg, #0072ff, #00c6ff);
+    }
+
+    /* Контейнер для контента с затемнённым фоном */
+    .discount-text {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #00c6ff;
+      opacity: 0.9;
+    }
+
+    /* Адаптивные стили */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 320px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .link-button {
+        font-size: 1.3em;
+      }
+
+      .discount-text {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-effect"></div>
+  <div class="container">
+    <!-- Место для ника модели -->
+    <h1>Regina Red</h1>
+    <!-- Описание модели -->
+    <p>Hey, I am happy you're here 🤍<br>A petite small town girl</p>
+    <!-- Ссылки -->
+    <div class="links">
+      <a class="link-button" href="https://fansly.com/Angelina_Blackwood/posts" target="_blank">FANSLY!</a>
+      <div class="discount-text">100% OFF on subscription!</div>
+    </div>
+  </div>
+</body>
+
+</html>

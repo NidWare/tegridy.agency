@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ведение стримов на страницах — Академия операторов</title>
+<link rel="icon" href="assets/mascots/green.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{document.documentElement.setAttribute('data-acad-theme',localStorage.getItem('tegridy_academy_theme')||'dark');}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="acad-shell">
+  <div class="acad-topbar">
+    <button class="topbar__burger" type="button" data-menu-open aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="topbar__brand" href="index.html">
+      <span class="topbar__brand-mascots">
+        <img src="assets/mascots/green.png" alt="" style="height:17px">
+        <img src="assets/mascots/orange.png" alt="" style="height:16px">
+        <img src="assets/mascots/red.png" alt="" style="height:17px">
+        <img src="assets/mascots/blue.png" alt="" style="height:17px">
+      </span>
+      <span class="topbar__brand-name">tegridy agency</span>
+    </a>
+    <span class="topbar__spacer"></span>
+    <button class="topbar__theme" type="button" data-theme-toggle aria-label="Сменить тему">
+      <span class="icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></span>
+      <span class="icon-sun"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+    </button>
+  </div>
+
+  <!-- ============ Mobile overlay ============ -->
+  <button class="acad-overlay" type="button" data-menu-close aria-label="Закрыть меню" hidden></button>
+
+  <!-- ============ Sidebar ============ -->
+  <aside class="acad-side" data-active="m2" data-open="false">
+    <a class="side__brand" href="index.html">
+      <span class="side__brand-mascots">
+        <img src="assets/mascots/green.png" alt="" style="height:21px">
+        <img src="assets/mascots/orange.png" alt="" style="height:20px">
+        <img src="assets/mascots/red.png" alt="" style="height:21px">
+        <img src="assets/mascots/blue.png" alt="" style="height:21px">
+      </span>
+      <span class="side__brand-text">
+        <span class="side__brand-name">tegridy agency</span>
+        <span class="side__brand-sub">Академия операторов</span>
+      </span>
+    </a>
+
+    <nav class="side__nav">
+      <a class="nav-item nav-item--home" data-nav="home" href="index.html">
+        <span class="nav-item__icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
+        </span>
+        <span class="nav-item__label">Главная</span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-green"></span><span>1 День - Знакомство</span></div>
+      <a class="nav-item" data-nav="l1" data-lesson="l1" href="lesson-1.html">
+        <span class="nav-item__num is-green">1</span>
+        <span class="nav-item__label">Знакомство с командой</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l2" data-lesson="l2" href="lesson-2.html">
+        <span class="nav-item__num is-green">2</span>
+        <span class="nav-item__label">Рабочие задачи и условия сотрудничества</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l3" data-lesson="l3" href="lesson-3.html">
+        <span class="nav-item__num is-green">3</span>
+        <span class="nav-item__label">Изучение платформы</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l4" data-lesson="l4" href="lesson-4.html">
+        <span class="nav-item__num is-green">4</span>
+        <span class="nav-item__label">Важные правила агенства + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-orange"></span><span>2 День - Чаттинг</span></div>
+      <a class="nav-item" data-nav="l5" data-lesson="l5" href="lesson-5.html">
+        <span class="nav-item__num is-orange">5</span>
+        <span class="nav-item__label">Психология продаж</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l6" data-lesson="l6" href="lesson-6.html">
+        <span class="nav-item__num is-orange">6</span>
+        <span class="nav-item__label">Плавный чаттинг и правила продаж</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l7" data-lesson="l7" href="lesson-7.html">
+        <span class="nav-item__num is-orange">7</span>
+        <span class="nav-item__label">Правила платформы + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-blue"></span><span>3 День - Закрепление</span></div>
+      <a class="nav-item" data-nav="l8" data-lesson="l8" href="lesson-8.html">
+        <span class="nav-item__num is-blue">8</span>
+        <span class="nav-item__label">Продажа кастомных видео</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l9" data-lesson="l9" href="lesson-9.html">
+        <span class="nav-item__num is-blue">9</span>
+        <span class="nav-item__label">Чек-лист рабочего дня + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-red"></span><span>🗒 Методички для работы</span></div>
+      <a class="nav-item" data-nav="m1" href="metodichka-1.html">
+        <span class="nav-item__icon nav-item__icon--file">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"></path><path d="M14 3v5h5"></path></svg>
+        </span>
+        <span class="nav-item__label">Что делать если не хватает контента на странице?</span>
+      </a>
+      <a class="nav-item" data-nav="m2" href="metodichka-2.html">
+        <span class="nav-item__icon nav-item__icon--file">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"></path><path d="M14 3v5h5"></path></svg>
+        </span>
+        <span class="nav-item__label">Ведение стримов на страницах</span>
+      </a>
+    </nav>
+
+    <div class="side__foot">
+      <div class="side__progress">
+        <div class="side__progress-head">
+          <span class="side__progress-label">Прогресс обучения</span>
+          <span class="side__progress-count"><span data-done-count>0</span> из 9</span>
+        </div>
+        <div class="bar"><div class="bar__fill" data-progress-fill></div></div>
+      </div>
+      <button class="theme-btn" type="button" data-theme-toggle>
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="theme-label-dark">Светлая тема</span>
+        <span class="theme-label-light">Тёмная тема</span>
+      </button>
+    </div>
+  </aside>
+  <main class="acad-main">
+    <div style="display:flex;gap:46px;justify-content:center;padding:clamp(18px,3.5vw,44px) clamp(16px,4vw,52px) 90px">
+      <article data-page-id="m2" data-screen-label="Ведение стримов на страницах" style="width:100%;max-width:var(--cw,764px);min-width:0;font-size:calc(16.5px * var(--fsx,1))">
+        <img src="assets/m2/banner.jpg" alt="" style="width:100%;aspect-ratio:5/2;object-fit:cover;border-radius:18px;border:1px solid var(--border);display:block;background:var(--surface)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:20px 0 0">
+          <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:100px;background:var(--redT);color:var(--redA);font:700 12px/1 'Golos Text',sans-serif">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--redA)"></span>
+            <span style="white-space:nowrap">Методички для работы</span>
+          </span>
+          <span style="display:inline-flex;align-items:center;padding:6px 12px;border-radius:100px;border:1px solid var(--border);color:var(--muted);font:500 12px/1 'Golos Text',sans-serif">≈ 4 мин чтения</span>
+          <div data-when-done hidden style="display:contents">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:100px;background:var(--greenT);color:var(--green);font:700 12px/1 'Golos Text',sans-serif">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span>Пройден</span>
+            </span>
+          </div>
+        </div>
+        <h1 style="font:900 clamp(27px,4.2vw,37px)/1.16 'Nunito',sans-serif;letter-spacing:-.015em;margin:14px 0 26px;text-wrap:balance">Ведение стримов на страницах</h1>
+
+        <div><h2 id="h-1" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px">Как вести стримы?</h2><div style="display:flex;gap:13px;margin:1.35em 0;padding:1.05em 1.2em;border-radius:15px;background:var(--tint-yellow);border:1px solid var(--border)"><div style="flex:none;padding-top:.1em"><span style="display:flex;width:1.5em;height:1.5em;align-items:center;justify-content:center;border-radius:50%;background:var(--redA);color:#fff;font-size:.75em;font-weight:700">✓</span></div><div style="flex:1;min-width:0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600">Чек-лист подготовки к стриму:</strong></p><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Связь с моделью через тг бота проверена и работает</li><li style="line-height:1.62;padding-left:.15em">Передаем остальные страницы во время стрима коллегам по смене (кто с вами на смене и у кого нет стрима в это же время)</li><li style="line-height:1.62;padding-left:.15em">Настройка новых целей (см. настройка целей)</li><li style="line-height:1.62;padding-left:.15em">Подготовлена рассылка с анонсом (лучше рассылку делать одновременно с запуском, большинство ждать не будет и зайдет если увидит в моменте)</li></ul></div></div><div style="display:flex;gap:13px;margin:1.35em 0;padding:1.05em 1.2em;border-radius:15px;background:var(--tint-yellow);border:1px solid var(--border)"><div style="flex:none;padding-top:.1em"><span style="display:flex;width:1.5em;height:1.5em;align-items:center;justify-content:center;border-radius:50%;background:var(--redA);color:#fff;font-size:.75em;font-weight:700">✓</span></div><div style="flex:1;min-width:0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600">Общение с моделью:</strong></p><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Некоторые модели по началу стесняются стримов, поэтому наша задача полностью расслабить и раскрепостить. Чем натуральнее и раскрепощённее она на стриме, тем больше денег несут мемберы.</li><li style="line-height:1.62;padding-left:.15em">Очень важно вежливо и с уважением обращаться к моделям, в то же время не казаться через-чур формальным, общаясь с ней по-дружески</li><li style="line-height:1.62;padding-left:.15em">Не стесняйтесь поддерживать ее, отмечать точки и позы, в которых было горячо, а так же подсказывать по звуку/свету/расположении камеры. </li><li style="line-height:1.62;padding-left:.15em">Напоминайте о благодарности платежникам, если забывает.</li><li style="line-height:1.62;padding-left:.15em">Если мем просит что-то нестандартное в дм – уточняйте у модели и продавайте!!</li></ul></div></div><figure style="margin:1.3em auto;text-align:center"><img src="assets/m2/Снимок_экрана_2025-06-20_в_18.44.37.png" alt="" loading="lazy" style="width:min(384px,100%);height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><em><strong style="color:var(--text);font-weight:600"> Пример общения с моделью</strong></em></p><div style="display:flex;gap:13px;margin:1.35em 0;padding:1.05em 1.2em;border-radius:15px;background:var(--tint-yellow);border:1px solid var(--border)"><div style="flex:none;padding-top:.1em"><span style="display:flex;width:1.5em;height:1.5em;align-items:center;justify-content:center;border-radius:50%;background:var(--redA);color:#fff;font-size:.75em;font-weight:700">✓</span></div><div style="flex:1;min-width:0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600">Настройка целей</strong></p><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Цели на стрим находятся во вкладке <strong style="color:var(--text);font-weight:600">Creator dashboard</strong> при нажатии на аватарку модели в правом верхнем углу интерфейса</li><li style="line-height:1.62;padding-left:.15em">При нажатии на цель появляется редактор, в котором можно написать название и установить сумму для ее выполнения.<br><strong style="color:var(--text);font-weight:600">Максимальное количество целей – 3.</strong></li><li style="line-height:1.62;padding-left:.15em">При выполнении целей нужно их обновлять, а не удалять и создавать новые. Увеличиваем цену и заменяем цель на следующую<br><strong style="color:var(--text);font-weight:600">Пример: после достижения цели sexy dance в 20$ переименовываем цель и ставим в amount 20$+сумма для новой цели</strong></li><li style="line-height:1.62;padding-left:.15em">Цели ведем по принципу лесенки – чем больше денег собираем, тем горячее.</li><li style="line-height:1.62;padding-left:.15em">Начинаем с раздевания/стриптиза, следующие цели всегда утверждаем с моделью (иногда забывают дилдо или не могут проникновение делать, поэтому уточняем, прежде чем ставить) </li><li style="line-height:1.62;padding-left:.15em">Цели с прошлого стрима, которые были частично заполнены - можем не удалять, а переименовать и таким образом дать мотивацию мемберам на их быстрое закрытие в начале стрима</li></ul></div></div><h4 id="h-2" style="font:700 1.14em/1.35 'Nunito',sans-serif;margin:1.5em 0 .55em;color:var(--text);scroll-margin-top:90px">Примеры завлекающих целей</h4><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><br>Sexy dance<br>Strip-tease<br>Ice on nipples<br>Suck titties (wet fingers on nipples)<br>Pussy play through panties<br>Середина:<br>Fuck me with dildo (saying your name)<br>Oily show<br>Make me wet (начало пусси плэя)<br>Lovense control for 5 mins<br>Blowjob<br>Spreading holes<br>Footjob<br>Концовка:<br>Fuck Dildo till i cum<br>Make me cum<br>Orgasm for u<br>Cum show<br>Double penetration<br>Lovense orgasm</p><div style="display:flex;gap:13px;margin:1.35em 0;padding:1.05em 1.2em;border-radius:15px;background:var(--tint-yellow);border:1px solid var(--border)"><div style="flex:none;padding-top:.1em"><span style="display:flex;width:1.5em;height:1.5em;align-items:center;justify-content:center;border-radius:50%;background:var(--redA);color:#fff;font-size:.75em;font-weight:700">✓</span></div><div style="flex:1;min-width:0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600">Не стесняйтесь использовать интересные эмоджи для текста целей, чтобы сделать их ярче</strong></p></div></div><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h4 id="h-3" style="font:700 1.14em/1.35 'Nunito',sans-serif;margin:1.5em 0 .55em;color:var(--text);scroll-margin-top:90px"><br>Ведение стрима</h4><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><br>На стриме у вас существует 3 способа контакта с мемберами для продажи:<br>- Модель может озвучить в лайве то, что вы ей напишите<br>- Чат стрима (просите модель сделать вид что она пишет и пишите в чат мемберу)<br>- Личные сообщения - ДМ (Также просите модель делать вид, что печатает, пока вы договариваетесь с мембром)</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><br>Периодически просим модель напоминать вслух на стриме, что впереди еще есть горячие цели и тип меню.<br></p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">В чате стрима можно отвечать на более сложные вопросы, если модель плохо знает английский, а так же дополнительно <strong style="color:var(--text);font-weight:600">тизить/продавать:</strong></p><blockquote style="margin:1.25em 0;padding:.9em 1.15em;border-left:3px solid var(--redA);background:var(--tint-gray);border-radius:0 13px 13px 0;color:var(--text);line-height:1.6"><code style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--code-bg);padding:2px 7px;border-radius:6px;color:var(--text)">the first to tip 10$ from now gets the gift in DM</code> (помогает запустить веселье, обычно как только начинается движуха начинает течь кэш)<br><code style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--code-bg);padding:2px 7px;border-radius:6px;color:var(--text)">Only ..$ left to the next goal guys, let’s have some fun!! I will do it for ..$ now for u, honey</code> (если в чате кто то хочет увидеть действие от модели)</blockquote><div style="display:flex;gap:13px;margin:1.35em 0;padding:1.05em 1.2em;border-radius:15px;background:var(--tint-yellow);border:1px solid var(--border)"><div style="flex:none;padding-top:.1em"><span style="display:flex;width:1.5em;height:1.5em;align-items:center;justify-content:center;border-radius:50%;background:var(--redA);color:#fff;font-size:.75em;font-weight:700">✓</span></div><div style="flex:1;min-width:0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><strong style="color:var(--text);font-weight:600">ВАЖНО:</strong> не забываем просить модель «попечатать», если пишете в чат или отвечаете в ДМ, чтобы не создавалось рассинхрона и мемберы не поняли, что с ними общается чаттер</p></div></div><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h3 id="h-4" style="font:800 1.34em/1.3 'Nunito',sans-serif;letter-spacing:-.008em;margin:1.7em 0 .6em;color:var(--text);scroll-margin-top:90px">Ваши основные обязанности во время стрима:</h3><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">В ДМ Обязательно отписывать новым фолловерам ибо во время стрима идет большой приток новых мемберов и нужно успеть обработать всех </p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">- мы приветствуем нового мема по Имени и зовем его к нам на трансляцию прямо сейчас<br></p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Лучше всего сделать скрипт приветствия для стрима копировать его, подставляя имя каждого нового мема в него)</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><br><strong style="color:var(--text);font-weight:600">Пример:</strong> <code style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--code-bg);padding:2px 7px;border-radius:6px;color:var(--text)">Wow Max thanks for following!<br>Dont skip my livestream right now and be my guest 💗</code></p><ol style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Подписываемся на новых мемберов, которые оставили чаевые, если у них закрыты личные сообщения, просим модель поблагодарить их и сказать им вслух чтобы те подписались</li><li style="line-height:1.62;padding-left:.15em">Во время стрима читать в чат, принимать в нем заказы за $ и передавать модели, а также банить неадекватов, которые<br>оскорбляют кого-либо. Нажимаем на значок 🚫 рядом с их именем</li><li style="line-height:1.62;padding-left:.15em">Менять цели своевременно при их заполнении, чтобы стимулировать мемберов на дальнейшую трату</li><li style="line-height:1.62;padding-left:.15em">Подсказывать моделям лучшие позы, ракурсы,что лучше использовать, что снять в данный момент , как лучше дразнить мемберов, оценивая сообщения в чате, давая модели общее направление. </li><li style="line-height:1.62;padding-left:.15em">Напоминать моделям о благодарности платников<br>на стриме</li><li style="line-height:1.62;padding-left:.15em">В конце стрима поблагодарить модель за работу, пройтись по чатам с платниками, обработать новых фолловеров и в конце пройтись по списку продаж и чаевых (добавить $ в имена, подписаться на платников, занести их в списки)</li></ol><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h3 id="h-5" style="font:800 1.34em/1.3 'Nunito',sans-serif;letter-spacing:-.008em;margin:1.7em 0 .6em;color:var(--text);scroll-margin-top:90px">Настройка доступа к чату стрима</h3><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Заходим в creator dashboard – streaming</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><br>Нажимаем в окне чата справа Toggle permissions – new permission.</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><br>Выбираем условие для возможности писать в чат.</p><div style="display:flex;gap:14px;flex-wrap:wrap;margin:1.2em 0;align-items:flex-start"><div style="flex:1 1 240px;min-width:0"><figure style="margin:1.3em auto;text-align:center"><img src="assets/m2/Снимок_экрана_2025-06-26_в_19.59.49.png" alt="" loading="lazy" style="width:100%;height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure></div><div style="flex:1 1 240px;min-width:0"><figure style="margin:1.3em auto;text-align:center"><img src="assets/m2/Снимок_экрана_2025-06-26_в_19.59.56.png" alt="" loading="lazy" style="width:100%;height:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface)"></figure></div></div><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h2 id="h-6" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px">Что делать если модель сама ведет стрим? </h2><ol style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">В начале стрима модели удаляем все старые рассылки и запускаем новую, содержащую в себе ссылку на стрим.</li></ol><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">пример: my stream is on! Come for some fun 🤭 <a href="https://fansly.com/live/Nasttat1111" target="_blank" rel="noopener" style="color:var(--linkc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px">https://fansly.com/live/Nasttat1111</a>)</p><ol start="2" style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Выходим с анкеты, в разделе смены указываем, что вышли с анкеты модели на время стрима</li></ol><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">(пример: - Мира стрим)</p><ol start="3" style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">По окончанию заходим обратно, удаляем рассылки и обрабатываем весь пришедший за стрим трафик. (Допускается обработка в одно сообщение вместо двух).</li></ol><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">(пример: Thanks for follow 💗 Did you enjoy my stream? :)</p><ol start="4" style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Обработку необходимо завершить в течение часа после окончания стрима.</li></ol></div>
+
+        <div style="margin-top:48px;border-top:1px solid var(--border);padding-top:28px;display:flex;flex-direction:column;gap:22px">
+          <div data-when-not-done style="display:contents">
+            <button data-toggle-done style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:none;border-radius:13px;background:var(--redA);color:#fff;cursor:pointer;font:800 15px/1 'Nunito',sans-serif;letter-spacing:.01em;box-shadow:0 6px 18px var(--redT)" style-hover="filter:brightness(1.08)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span>Отметить урок пройденным</span>
+            </button>
+          </div>
+          <div data-when-done hidden style="display:contents">
+            <div style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;background:var(--greenT);border:1px solid rgba(83,192,103,.25)">
+              <img src="assets/mascots/red.png" alt="" style="height:46px;width:auto">
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+                <span style="font:800 16px/1.2 'Nunito',sans-serif;color:var(--text)">Урок пройден!</span>
+                <span style="font:400 13px/1.4 'Golos Text',sans-serif;color:var(--text2)">Прогресс сохранён. Можно двигаться дальше.</span>
+              </div>
+              <button data-toggle-done style="padding:9px 14px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;font:500 12px/1 'Golos Text',sans-serif" style-hover="color:var(--text)">Снять отметку</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="metodichka-1.html" style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-decoration:none;color:var(--text)" style-hover="background:var(--side-hover)"><span style="font:500 11.5px/1 'Golos Text',sans-serif;color:var(--muted)">← Назад</span><span style="font:600 13.5px/1.4 'Golos Text',sans-serif">Что делать если не хватает контента на странице?</span></a> </div>
+        </div>
+      </article>
+
+      <nav class="acad-toc">
+        <div style="font:700 10.5px/1 'Golos Text',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:6px 10px 10px">Содержание</div>
+        <div style="display:flex;flex-direction:column;border-left:1px solid var(--border);padding-left:4px"><a href="#h-1" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Как вести стримы?</a><a href="#h-2" style="display:block;padding:6px 8px 6px 34px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Примеры завлекающих целей</a><a href="#h-3" style="display:block;padding:6px 8px 6px 34px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Ведение стрима</a><a href="#h-4" style="display:block;padding:6px 8px 6px 22px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Ваши основные обязанности во время стрима:</a><a href="#h-5" style="display:block;padding:6px 8px 6px 22px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Настройка доступа к чату стрима</a><a href="#h-6" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Что делать если модель сама ведет стрим?</a></div>
+      </nav>
+    </div>
+  </main>
+</div>
+<script src="app.js" defer></script>
+<script src="lesson.js" defer></script>
+</body>
+</html>

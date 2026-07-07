@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 урок. Знакомство с командой — Академия операторов</title>
+<link rel="icon" href="assets/mascots/green.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{document.documentElement.setAttribute('data-acad-theme',localStorage.getItem('tegridy_academy_theme')||'dark');}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="acad-shell">
+  <div class="acad-topbar">
+    <button class="topbar__burger" type="button" data-menu-open aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="topbar__brand" href="index.html">
+      <span class="topbar__brand-mascots">
+        <img src="assets/mascots/green.png" alt="" style="height:17px">
+        <img src="assets/mascots/orange.png" alt="" style="height:16px">
+        <img src="assets/mascots/red.png" alt="" style="height:17px">
+        <img src="assets/mascots/blue.png" alt="" style="height:17px">
+      </span>
+      <span class="topbar__brand-name">tegridy agency</span>
+    </a>
+    <span class="topbar__spacer"></span>
+    <button class="topbar__theme" type="button" data-theme-toggle aria-label="Сменить тему">
+      <span class="icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></span>
+      <span class="icon-sun"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+    </button>
+  </div>
+
+  <!-- ============ Mobile overlay ============ -->
+  <button class="acad-overlay" type="button" data-menu-close aria-label="Закрыть меню" hidden></button>
+
+  <!-- ============ Sidebar ============ -->
+  <aside class="acad-side" data-active="l1" data-open="false">
+    <a class="side__brand" href="index.html">
+      <span class="side__brand-mascots">
+        <img src="assets/mascots/green.png" alt="" style="height:21px">
+        <img src="assets/mascots/orange.png" alt="" style="height:20px">
+        <img src="assets/mascots/red.png" alt="" style="height:21px">
+        <img src="assets/mascots/blue.png" alt="" style="height:21px">
+      </span>
+      <span class="side__brand-text">
+        <span class="side__brand-name">tegridy agency</span>
+        <span class="side__brand-sub">Академия операторов</span>
+      </span>
+    </a>
+
+    <nav class="side__nav">
+      <a class="nav-item nav-item--home" data-nav="home" href="index.html">
+        <span class="nav-item__icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
+        </span>
+        <span class="nav-item__label">Главная</span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-green"></span><span>1 День - Знакомство</span></div>
+      <a class="nav-item" data-nav="l1" data-lesson="l1" href="lesson-1.html">
+        <span class="nav-item__num is-green">1</span>
+        <span class="nav-item__label">Знакомство с командой</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l2" data-lesson="l2" href="lesson-2.html">
+        <span class="nav-item__num is-green">2</span>
+        <span class="nav-item__label">Рабочие задачи и условия сотрудничества</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l3" data-lesson="l3" href="lesson-3.html">
+        <span class="nav-item__num is-green">3</span>
+        <span class="nav-item__label">Изучение платформы</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l4" data-lesson="l4" href="lesson-4.html">
+        <span class="nav-item__num is-green">4</span>
+        <span class="nav-item__label">Важные правила агенства + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-orange"></span><span>2 День - Чаттинг</span></div>
+      <a class="nav-item" data-nav="l5" data-lesson="l5" href="lesson-5.html">
+        <span class="nav-item__num is-orange">5</span>
+        <span class="nav-item__label">Психология продаж</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l6" data-lesson="l6" href="lesson-6.html">
+        <span class="nav-item__num is-orange">6</span>
+        <span class="nav-item__label">Плавный чаттинг и правила продаж</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l7" data-lesson="l7" href="lesson-7.html">
+        <span class="nav-item__num is-orange">7</span>
+        <span class="nav-item__label">Правила платформы + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-blue"></span><span>3 День - Закрепление</span></div>
+      <a class="nav-item" data-nav="l8" data-lesson="l8" href="lesson-8.html">
+        <span class="nav-item__num is-blue">8</span>
+        <span class="nav-item__label">Продажа кастомных видео</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <a class="nav-item" data-nav="l9" data-lesson="l9" href="lesson-9.html">
+        <span class="nav-item__num is-blue">9</span>
+        <span class="nav-item__label">Чек-лист рабочего дня + тест</span>
+        <span class="nav-item__check"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+
+      <div class="nav-group"><span class="nav-group__dot is-red"></span><span>🗒 Методички для работы</span></div>
+      <a class="nav-item" data-nav="m1" href="metodichka-1.html">
+        <span class="nav-item__icon nav-item__icon--file">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"></path><path d="M14 3v5h5"></path></svg>
+        </span>
+        <span class="nav-item__label">Что делать если не хватает контента на странице?</span>
+      </a>
+      <a class="nav-item" data-nav="m2" href="metodichka-2.html">
+        <span class="nav-item__icon nav-item__icon--file">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"></path><path d="M14 3v5h5"></path></svg>
+        </span>
+        <span class="nav-item__label">Ведение стримов на страницах</span>
+      </a>
+    </nav>
+
+    <div class="side__foot">
+      <div class="side__progress">
+        <div class="side__progress-head">
+          <span class="side__progress-label">Прогресс обучения</span>
+          <span class="side__progress-count"><span data-done-count>0</span> из 9</span>
+        </div>
+        <div class="bar"><div class="bar__fill" data-progress-fill></div></div>
+      </div>
+      <button class="theme-btn" type="button" data-theme-toggle>
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="theme-label-dark">Светлая тема</span>
+        <span class="theme-label-light">Тёмная тема</span>
+      </button>
+    </div>
+  </aside>
+  <main class="acad-main">
+    <div style="display:flex;gap:46px;justify-content:center;padding:clamp(18px,3.5vw,44px) clamp(16px,4vw,52px) 90px">
+      <article data-page-id="l1" data-screen-label="1 урок. Знакомство с командой" style="width:100%;max-width:var(--cw,764px);min-width:0;font-size:calc(16.5px * var(--fsx,1))">
+        <img src="assets/l1/banner.jpg" alt="" style="width:100%;aspect-ratio:5/2;object-fit:cover;border-radius:18px;border:1px solid var(--border);display:block;background:var(--surface)">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:20px 0 0">
+          <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:100px;background:var(--greenT);color:var(--green);font:700 12px/1 'Golos Text',sans-serif">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--green)"></span>
+            <span>1 День - Знакомство</span>
+          </span>
+          <span style="display:inline-flex;align-items:center;padding:6px 12px;border-radius:100px;border:1px solid var(--border);color:var(--muted);font:500 12px/1 'Golos Text',sans-serif">≈ 2 мин чтения</span>
+          <div data-when-done hidden style="display:contents">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:100px;background:var(--greenT);color:var(--green);font:700 12px/1 'Golos Text',sans-serif">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span>Пройден</span>
+            </span>
+          </div>
+        </div>
+        <h1 style="font:900 clamp(27px,4.2vw,37px)/1.16 'Nunito',sans-serif;letter-spacing:-.015em;margin:14px 0 26px;text-wrap:balance">1 урок. Знакомство с командой</h1>
+
+        <div><h3 id="h-1" style="font:800 1.34em/1.3 'Nunito',sans-serif;letter-spacing:-.008em;margin:1.7em 0 .6em;color:var(--text);scroll-margin-top:90px">👋 Добро пожаловать!</h3><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Мы рады видеть тебя здесь и надеемся, что это будет начало классного пути — не просто рабочей рутины, а настоящего профессионального роста и кайфа от дела, которое мы делаем вместе.</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">У нас в команде принято:</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">— помогать друг другу,</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">— уважать границы,</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">— быть честными,</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Мы работаем в непростом формате, где важно чувствовать себя уверенно и свободно. Если ты хочешь развиваться, зарабатывать, предлагать идеи и видеть результат — ты точно по адресу.</p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h3 id="h-2" style="font:800 1.34em/1.3 'Nunito',sans-serif;letter-spacing:-.008em;margin:1.7em 0 .6em;color:var(--text);scroll-margin-top:90px">Что мы ценим:</h3><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Фан всегда в центре внимания</strong> — мы общаемся, вовлекаем и продаём, но делаем это с уважением к человеку.</li><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Открытость</strong> — к общению, к обратной связи, к новому.</li><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Ответственность</strong> — если сказал, сделал.</li><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Развитие</strong> — здесь реально вырасти, и мы готовы помогать.</li><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Командный дух</strong> — мы все заодно.</li></ul><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h3 id="h-3" style="font:800 1.34em/1.3 'Nunito',sans-serif;letter-spacing:-.008em;margin:1.7em 0 .6em;color:var(--text);scroll-margin-top:90px">С нами ты получишь:</h3><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">возможность быть частью сильной и амбициозной команды,</li><li style="line-height:1.62;padding-left:.15em">поддержку на каждом этапе — от стажировки до роста,</li><li style="line-height:1.62;padding-left:.15em">гибкость и человеческий подход,</li><li style="line-height:1.62;padding-left:.15em">пространство для креатива, роста и стабильного дохода.</li></ul><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Если ты готов(а) включиться, учиться, пробовать новое.</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Добро пожаловать 💼✨</p><h2 id="h-4" style="font:800 1.62em/1.25 'Nunito',sans-serif;letter-spacing:-.012em;margin:1.9em 0 .65em;color:var(--text);scroll-margin-top:90px">Руководящий состав TEGRIDY AGENCY</h2><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">@KirkeRup - Руперт, оунер агентства</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">@miroslavof - Мирон, оунер агентства</p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">@slappmeeee - Полли, руководитель отдела продаж</p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">@hxjei2454hshd - Антон, тимлид</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">@pr3ttyscarrr - Никита, тимлид</p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">@zeuskkkkkkkkk - Георгий, HR </p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h4 id="h-5" style="font:700 1.14em/1.35 'Nunito',sans-serif;margin:1.5em 0 .55em;color:var(--text);scroll-margin-top:90px">Рабочий Чат:</h4><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Общение</strong> - чат в телеграме для общения и важных оповещений </li><li style="line-height:1.62;padding-left:.15em"><strong style="color:var(--text);font-weight:600">Смены — рабочая отметка присутствия</strong></li></ul><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">В этом чате мы фиксируем начало и конец смены.</p><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">В начале работы пишем: <strong style="color:var(--text);font-weight:600">“+ [имена моделей]”</strong></li><li style="line-height:1.62;padding-left:.15em">По завершении смены: <strong style="color:var(--text);font-weight:600">“- [имена моделей]”</strong></li></ul><h4 id="h-6" style="font:700 1.14em/1.35 'Nunito',sans-serif;margin:1.5em 0 .55em;color:var(--text);scroll-margin-top:90px">Дискорд-сервер:</h4><ul style="margin:0.9em 0;padding-left:1.45em;display:flex;flex-direction:column;gap:.5em;color:var(--text2)"><li style="line-height:1.62;padding-left:.15em">Используем для передачи смены;</li><li style="line-height:1.62;padding-left:.15em">Используем для коммуникации во время смены;</li><li style="line-height:1.62;padding-left:.15em">Используем для созвонов;</li></ul><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"><h4 id="h-7" style="font:700 1.14em/1.35 'Nunito',sans-serif;margin:1.5em 0 .55em;color:var(--text);scroll-margin-top:90px">Инструменты для работы:</h4><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><a href="index.html" style="color:var(--linkc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px">Академия операторов</a> - курс Notion</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><a href="https://t.me/+K3MWUNHGU6plMTE1" target="_blank" rel="noopener" style="color:var(--linkc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px">Повышение квалификации</a> - видеокурс </p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Deepl - переводчик</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Onlymonster - для работы на ОФ страницах </p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><a href="http://fanpilot.org" target="_blank" rel="noopener" style="color:var(--linkc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px">fanpilot.org</a> - для работы на Fasnly</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Asana - приложение для отчета и расписания</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)">Hidemy.name - отличный впн</p><p style="margin:.85em 0;line-height:1.68;color:var(--text2)"><a href="https://discord.gg/FTSvb7hy" target="_blank" rel="noopener" style="color:var(--linkc);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px">Tegridy Agency Discord</a> - дискор-сервер для простых разговор и рабочей коммуникации</p><hr style="border:none;height:1px;background:var(--border);margin:2.1em 0"></div>
+
+        <div style="margin-top:48px;border-top:1px solid var(--border);padding-top:28px;display:flex;flex-direction:column;gap:22px">
+          <div data-when-not-done style="display:contents">
+            <button data-toggle-done style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:none;border-radius:13px;background:var(--green);color:#fff;cursor:pointer;font:800 15px/1 'Nunito',sans-serif;letter-spacing:.01em;box-shadow:0 6px 18px var(--greenT)" style-hover="filter:brightness(1.08)">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span>Отметить урок пройденным</span>
+            </button>
+          </div>
+          <div data-when-done hidden style="display:contents">
+            <div style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;background:var(--greenT);border:1px solid rgba(83,192,103,.25)">
+              <img src="assets/mascots/green.png" alt="" style="height:46px;width:auto">
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px">
+                <span style="font:800 16px/1.2 'Nunito',sans-serif;color:var(--text)">Урок пройден!</span>
+                <span style="font:400 13px/1.4 'Golos Text',sans-serif;color:var(--text2)">Прогресс сохранён. Можно двигаться дальше.</span>
+              </div>
+              <button data-toggle-done style="padding:9px 14px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;font:500 12px/1 'Golos Text',sans-serif" style-hover="color:var(--text)">Снять отметку</button>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="index.html" style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-decoration:none;color:var(--text)" style-hover="background:var(--side-hover)"><span style="font:500 11.5px/1 'Golos Text',sans-serif;color:var(--muted)">← Назад</span><span style="font:600 13.5px/1.4 'Golos Text',sans-serif">Главная — Академия операторов</span></a> <a href="lesson-2.html" style="flex:1 1 240px;display:flex;flex-direction:column;gap:6px;align-items:flex-end;text-align:right;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-decoration:none;color:var(--text)" style-hover="background:var(--side-hover)"><span style="font:500 11.5px/1 'Golos Text',sans-serif;color:var(--muted)">Дальше →</span><span style="font:600 13.5px/1.4 'Golos Text',sans-serif">2 урок. Рабочие задачи и условия сотрудничества</span></a></div>
+        </div>
+      </article>
+
+      <nav class="acad-toc">
+        <div style="font:700 10.5px/1 'Golos Text',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:6px 10px 10px">Содержание</div>
+        <div style="display:flex;flex-direction:column;border-left:1px solid var(--border);padding-left:4px"><a href="#h-1" style="display:block;padding:6px 8px 6px 22px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">👋 Добро пожаловать!</a><a href="#h-2" style="display:block;padding:6px 8px 6px 22px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Что мы ценим:</a><a href="#h-3" style="display:block;padding:6px 8px 6px 22px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">С нами ты получишь:</a><a href="#h-4" style="display:block;padding:6px 8px 6px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Руководящий состав TEGRIDY AGENCY</a><a href="#h-5" style="display:block;padding:6px 8px 6px 34px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Рабочий Чат:</a><a href="#h-6" style="display:block;padding:6px 8px 6px 34px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Дискорд-сервер:</a><a href="#h-7" style="display:block;padding:6px 8px 6px 34px;border-radius:8px;color:var(--muted);text-decoration:none;font:500 12.5px/1.45 'Golos Text',sans-serif" style-hover="color:var(--text);background:var(--side-hover)">Инструменты для работы:</a></div>
+      </nav>
+    </div>
+  </main>
+</div>
+<script src="app.js" defer></script>
+<script src="lesson.js" defer></script>
+</body>
+</html>

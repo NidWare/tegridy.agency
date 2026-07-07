@@ -1,0 +1,277 @@
+/* ============================================================
+   Академия операторов — TEGRIDY AGENCY
+   Design tokens + layout + components
+   Converted from the Claude Design (.dc.html) source to plain CSS.
+   ============================================================ */
+
+/* ---------- Theme tokens ---------- */
+:root{
+  color-scheme:dark;
+  --bg:#141414;--surface:#1D1D1E;--surface2:#262627;--border:rgba(255,255,255,.09);
+  --text:#F3F2EE;--text2:#C9C7C0;--muted:#908E87;
+  --side-bg:#181818;--side-hover:rgba(255,255,255,.05);--side-active:rgba(255,255,255,.09);
+  --green:#53C067;--orange:#E8A13C;--redA:#D9534A;--blueA:#4C93DC;
+  --greenT:rgba(83,192,103,.15);--orangeT:rgba(232,161,60,.15);--redT:rgba(217,83,74,.16);--blueT:rgba(76,147,220,.16);
+  --linkc:#7ECD92;--linkh:#9ADCA9;
+  --tint-gray:rgba(255,255,255,.055);--tint-yellow:rgba(232,161,60,.11);--tint-orange:rgba(232,161,60,.14);
+  --tint-red:rgba(217,83,74,.13);--tint-blue:rgba(76,147,220,.13);--tint-green:rgba(83,192,103,.12);
+  --tint-purple:rgba(167,130,233,.13);--tint-pink:rgba(224,98,174,.13);--tint-brown:rgba(178,130,90,.14);
+  --tint-teal:rgba(64,190,164,.12);--tint-default:rgba(255,255,255,.055);
+  --hl-red:#E4766E;--hl-yellow:#E0AE4E;--hl-gray:#A5A39C;--hl-blue:#6FA9E8;--hl-green:#6FCB84;
+  --hl-orange:#E8A13C;--hl-purple:#B292EE;--hl-pink:#E27FB7;--hl-brown:#C79A76;--hl-teal:#54C8B0;--hl-default:#F3F2EE;
+  --code-bg:rgba(255,255,255,.08);--shadow:0 18px 44px rgba(0,0,0,.5);
+}
+html[data-acad-theme="light"]{
+  color-scheme:light;
+  --bg:#F6F5F1;--surface:#FFFFFF;--surface2:#EFEEE8;--border:rgba(28,27,24,.11);
+  --text:#232320;--text2:#45443F;--muted:#83817A;
+  --side-bg:#FBFAF7;--side-hover:rgba(28,27,24,.05);--side-active:rgba(28,27,24,.085);
+  --green:#37A053;--orange:#C77F14;--redA:#B51515;--blueA:#0A59A6;
+  --greenT:rgba(55,160,83,.13);--orangeT:rgba(199,127,20,.13);--redT:rgba(181,21,21,.11);--blueT:rgba(10,89,166,.11);
+  --linkc:#2C7A43;--linkh:#1F5F33;
+  --tint-gray:rgba(28,27,24,.06);--tint-yellow:rgba(199,127,20,.10);--tint-orange:rgba(199,127,20,.13);
+  --tint-red:rgba(181,21,21,.09);--tint-blue:rgba(10,89,166,.09);--tint-green:rgba(55,160,83,.10);
+  --tint-purple:rgba(122,70,215,.09);--tint-pink:rgba(196,42,126,.09);--tint-brown:rgba(140,90,50,.10);
+  --tint-teal:rgba(13,142,116,.10);--tint-default:rgba(28,27,24,.06);
+  --hl-red:#B02F27;--hl-yellow:#94670B;--hl-gray:#77756E;--hl-blue:#1D63AC;--hl-green:#2E8047;
+  --hl-orange:#B06F0A;--hl-purple:#7A46D7;--hl-pink:#C42A7E;--hl-brown:#8C5A32;--hl-teal:#0D8E74;--hl-default:#232320;
+  --code-bg:rgba(28,27,24,.07);--shadow:0 16px 40px rgba(30,28,20,.14);
+}
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+body{font-family:'Golos Text',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+a{color:var(--linkc)}
+a:hover{color:var(--linkh)}
+img{max-width:100%}
+::selection{background:rgba(83,192,103,.32)}
+
+/* ---------- Shell / layout ---------- */
+.acad-shell{display:flex;min-height:100vh;align-items:stretch}
+.acad-side{
+  position:sticky;top:0;height:100vh;width:292px;overflow-y:auto;overflow-x:hidden;
+  background:var(--side-bg);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.acad-side::-webkit-scrollbar{width:8px}
+.acad-side::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.acad-main{flex:1;min-width:0}
+.acad-topbar{display:none}
+.acad-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:58;border:0}
+/* Right-rail table of contents (lesson pages) */
+.acad-toc{width:242px;flex:0 0 242px;position:sticky;top:40px;align-self:flex-start;max-height:calc(100vh - 80px);overflow:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.acad-toc::-webkit-scrollbar{width:8px}
+.acad-toc::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+/* Active nav highlight (driven by [data-active] on the sidebar) */
+[data-active="home"] [data-nav="home"],
+[data-active="l1"] [data-nav="l1"],[data-active="l2"] [data-nav="l2"],[data-active="l3"] [data-nav="l3"],
+[data-active="l4"] [data-nav="l4"],[data-active="l5"] [data-nav="l5"],[data-active="l6"] [data-nav="l6"],
+[data-active="l7"] [data-nav="l7"],[data-active="l8"] [data-nav="l8"],[data-active="l9"] [data-nav="l9"],
+[data-active="m1"] [data-nav="m1"],[data-active="m2"] [data-nav="m2"]{
+  background:var(--side-active);color:var(--text);
+}
+
+.acad-hero-art{
+  position:absolute;right:-40px;bottom:-12px;height:150px;opacity:.9;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 25%);
+  mask-image:linear-gradient(90deg,transparent,#000 25%);
+}
+
+/* ---------- Main content column ---------- */
+.acad-page{
+  max-width:880px;margin:0 auto;
+  padding:clamp(18px,3.5vw,44px) clamp(16px,4vw,52px) 90px;
+  display:flex;flex-direction:column;gap:34px;
+}
+
+/* ---------- Hero (always dark, in both themes) ---------- */
+.hero{
+  position:relative;overflow:hidden;border-radius:22px;background:#181818;
+  border:1px solid rgba(255,255,255,.09);padding:clamp(26px,4vw,44px);color:#F3F2EE;
+}
+.hero__inner{position:relative;display:flex;flex-direction:column;gap:18px;max-width:560px}
+.hero__mascots{display:flex;gap:5px;align-items:flex-end}
+.hero__mascots img{width:auto}
+.hero__title{font:900 clamp(30px,5vw,44px)/1.1 'Nunito',sans-serif;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.hero__lead{font:400 16px/1.65 'Golos Text',sans-serif;color:#C9C7C0;margin:0;border-left:3px solid #53C067;padding-left:14px}
+.hero__lead strong{color:#F3F2EE}
+.hero__actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px}
+
+.btn-primary{
+  display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:13px;
+  background:#53C067;color:#102817;text-decoration:none;font:800 15px/1 'Nunito',sans-serif;
+  transition:filter .15s ease;
+}
+.btn-primary:hover{filter:brightness(1.07);color:#102817}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:13px;
+  border:1px solid rgba(255,255,255,.18);color:#F3F2EE;text-decoration:none;
+  font:600 13.5px/1 'Golos Text',sans-serif;transition:background .15s ease;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.07);color:#F3F2EE}
+.btn-ghost .muted{color:#908E87}
+
+/* ---------- Progress card ---------- */
+.progress-card{
+  display:flex;align-items:center;gap:18px;padding:18px 22px;
+  border:1px solid var(--border);border-radius:18px;background:var(--surface);
+}
+.progress-card__body{flex:1;display:flex;flex-direction:column;gap:9px}
+.progress-card__head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.progress-card__label{font:700 14px/1 'Golos Text',sans-serif}
+.progress-card__count{font:800 13px/1 'Nunito',sans-serif;color:var(--muted)}
+.bar{height:9px;border-radius:6px;background:var(--side-active);overflow:hidden}
+.bar__fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#53C067,#7ED892);width:0;transition:width .4s ease}
+
+/* ---------- Day sections + lesson lists ---------- */
+.day{display:flex;flex-direction:column;gap:12px}
+.day__head{display:flex;align-items:center;gap:10px;padding:0 4px}
+.day__dot{width:10px;height:10px;border-radius:50%;flex:none}
+.day__dot.is-green{background:var(--green)}
+.day__dot.is-orange{background:var(--orange)}
+.day__dot.is-blue{background:var(--blueA)}
+.day__dot.is-red{background:var(--redA)}
+.day__title{font:800 20px/1.2 'Nunito',sans-serif;margin:0;letter-spacing:-.01em}
+.day__count{font:500 12.5px/1 'Golos Text',sans-serif;color:var(--muted)}
+
+.lesson-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden}
+.lesson{
+  display:flex;align-items:center;gap:14px;padding:15px 18px;text-decoration:none;color:var(--text);
+  border-bottom:1px solid var(--border);transition:background .13s ease;
+}
+.lesson:last-child{border-bottom:0}
+.lesson:hover{background:var(--side-hover);color:var(--text)}
+.lesson__num{
+  display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;
+  font:800 14px 'Nunito',sans-serif;flex:none;
+}
+.lesson__num.is-green{color:var(--green);background:var(--greenT)}
+.lesson__num.is-orange{color:var(--orange);background:var(--orangeT)}
+.lesson__num.is-blue{color:var(--blueA);background:var(--blueT)}
+.lesson__title{flex:1;font:600 14.5px/1.4 'Golos Text',sans-serif}
+.lesson__check{display:none;color:var(--green)}
+.lesson.is-done .lesson__check{display:flex}
+.lesson__chevron{color:var(--muted);display:flex}
+
+/* ---------- Методички cards ---------- */
+.metod-grid{display:flex;gap:12px;flex-wrap:wrap}
+.metod-card{
+  flex:1;min-width:250px;display:flex;flex-direction:column;gap:10px;padding:18px;
+  border:1px solid var(--border);border-radius:16px;background:var(--surface);
+  text-decoration:none;color:var(--text);transition:background .13s ease;
+}
+.metod-card:hover{background:var(--side-hover);color:var(--text)}
+.metod-card__icon{
+  display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:11px;
+  color:var(--redA);background:var(--redT);
+}
+.metod-card__text{font:600 14.5px/1.45 'Golos Text',sans-serif}
+
+/* ---------- Footer ---------- */
+.page-foot{display:flex;align-items:center;gap:10px;padding:22px 4px 0;border-top:1px solid var(--border)}
+.page-foot img{height:18px;width:auto;opacity:.75}
+.page-foot span{font:500 12px/1.5 'Golos Text',sans-serif;color:var(--muted)}
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+.side__brand{display:flex;align-items:center;gap:11px;padding:20px 16px 16px;text-decoration:none;color:var(--text)}
+.side__brand-mascots{display:flex;gap:3px;align-items:flex-end}
+.side__brand-mascots img{width:auto}
+.side__brand-text{display:flex;flex-direction:column;gap:3px}
+.side__brand-name{font:800 16px/1 'Nunito',sans-serif;letter-spacing:-.01em}
+.side__brand-sub{font:500 11.5px/1 'Golos Text',sans-serif;color:var(--muted)}
+
+.side__nav{flex:1;padding:4px 10px 14px;display:flex;flex-direction:column}
+.nav-item{
+  display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:10px;text-decoration:none;
+  color:var(--text2);font:500 13.5px/1.35 'Golos Text',sans-serif;transition:background .12s ease,color .12s ease;
+}
+.nav-item:hover{background:var(--side-hover);color:var(--text)}
+.nav-item--home{padding:8px 10px}
+.nav-item__label{flex:1}
+.nav-item__icon{
+  display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:9px;flex:none;
+  background:var(--side-hover);color:var(--text2);
+}
+.nav-item__num{
+  display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:9px;flex:none;
+  font:800 12.5px 'Nunito',sans-serif;
+}
+.nav-item__num.is-green{color:var(--green);background:var(--greenT)}
+.nav-item__num.is-orange{color:var(--orange);background:var(--orangeT)}
+.nav-item__num.is-blue{color:var(--blueA);background:var(--blueT)}
+.nav-item__icon--file{color:var(--redA);background:var(--redT)}
+.nav-item__check{display:none;color:var(--green)}
+.nav-item.is-done .nav-item__check{display:flex}
+
+.nav-group{
+  display:flex;align-items:center;gap:8px;margin:20px 12px 7px;
+  font:700 10.5px/1 'Golos Text',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+}
+.nav-group__dot{width:8px;height:8px;border-radius:50%;flex:none}
+.nav-group__dot.is-green{background:var(--green)}
+.nav-group__dot.is-orange{background:var(--orange)}
+.nav-group__dot.is-blue{background:var(--blueA)}
+.nav-group__dot.is-red{background:var(--redA)}
+
+.side__foot{padding:14px 16px 16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:12px}
+.side__progress{display:flex;flex-direction:column;gap:7px}
+.side__progress-head{display:flex;justify-content:space-between;align-items:baseline}
+.side__progress-label{font:600 12px/1 'Golos Text',sans-serif;color:var(--text2)}
+.side__progress-count{font:800 12px/1 'Nunito',sans-serif;color:var(--muted)}
+.side__progress .bar{height:7px}
+
+.theme-btn{
+  display:flex;align-items:center;gap:9px;padding:9px 12px;border:1px solid var(--border);border-radius:11px;
+  background:transparent;color:var(--text2);cursor:pointer;font:500 12.5px/1 'Golos Text',sans-serif;
+  transition:background .12s ease,color .12s ease;
+}
+.theme-btn:hover{background:var(--side-hover);color:var(--text)}
+
+/* ---------- Topbar (mobile) ---------- */
+.topbar__burger{
+  display:flex;flex-direction:column;gap:4px;justify-content:center;align-items:center;
+  width:40px;height:40px;border:none;background:transparent;cursor:pointer;border-radius:10px;color:var(--text);
+}
+.topbar__burger:hover{background:var(--side-hover)}
+.topbar__burger span{display:block;width:18px;height:2px;border-radius:2px;background:currentColor}
+.topbar__brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
+.topbar__brand-mascots{display:flex;gap:3px;align-items:flex-end}
+.topbar__brand-mascots img{width:auto}
+.topbar__brand-name{font:800 15px/1 'Nunito',sans-serif;letter-spacing:-.01em}
+.topbar__spacer{flex:1}
+.topbar__theme{
+  display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:none;
+  background:transparent;color:var(--text2);cursor:pointer;border-radius:10px;
+}
+.topbar__theme:hover{background:var(--side-hover)}
+
+/* ---------- Theme-dependent icon / label swap ---------- */
+html[data-acad-theme="dark"] .icon-moon,
+html[data-acad-theme="dark"] .theme-label-light{display:none}
+html[data-acad-theme="light"] .icon-sun,
+html[data-acad-theme="light"] .theme-label-dark{display:none}
+.icon-sun,.icon-moon{display:flex}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1240px){.acad-toc{display:none}}
+@media(max-width:960px){
+  .acad-side{
+    position:fixed;left:0;top:0;bottom:0;height:auto;z-index:60;width:304px;
+    transform:translateX(-105%);transition:transform .28s cubic-bezier(.2,.7,.3,1);
+  }
+  .acad-side[data-open="true"]{transform:none;box-shadow:var(--shadow)}
+  .acad-main{padding-top:60px}
+  .acad-topbar{
+    display:flex;position:fixed;top:0;left:0;right:0;height:60px;z-index:55;align-items:center;gap:12px;
+    padding:0 14px;background:color-mix(in srgb,var(--side-bg) 82%,transparent);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  }
+  .acad-hero-art{display:none}
+}
+@media(min-width:961px){.acad-overlay{display:none}}
