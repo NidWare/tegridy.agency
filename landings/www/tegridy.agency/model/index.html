@@ -163,7 +163,7 @@
     }
     .process .row { position: absolute; display: flex; align-items: center; }
     .process .imgbox { position: relative; flex: 0 0 auto; overflow: hidden; }
-    .process .imgbox .panel { position: absolute; width: 151px; height: 94px; }
+    .process .imgbox .panel { position: absolute; width: 151px; height: 94px; display: none; }
     .process .body { flex: 1 1 auto; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
     .process .body h3 {
       margin: 0; font-size: 40px; line-height: 46px; font-weight: 800;
@@ -496,7 +496,7 @@
       background: url('assets/silhouette.png') center / cover no-repeat;
     }
     .step.s1 .imgbox .silhouette { background: url('assets/stan.png') center / cover no-repeat; }
-    .step .imgbox .panel { position: absolute; width: 110px; height: 70px; }
+    .step .imgbox .panel { position: absolute; width: 110px; height: 70px; display: none; }
     .step.s1 .imgbox .panel { left: 40px; top: 100px; background: #0a59a6; }
     .step.s2 .imgbox .panel { left: 44px; top: 95px; background: #53c067; }
     .step.s3 .imgbox .panel { left: 48px; top: 88px; background: #e4951e; }
@@ -686,7 +686,7 @@
             <a href="#d-faq">FAQ</a>
             <a href="#d-contact">Контакты</a>
           </nav>
-          <a class="tg-link" href="#d-contact" aria-label="Telegram">
+          <a class="tg-link" href="http://t.me/tegridy_agency" target="_blank" rel="noopener" aria-label="Telegram">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path fill-rule="evenodd" fill="#131313" d="M 48 24 C 48 37.255 37.255 48 24 48 C 10.745 48 0 37.255 0 24 C 0 10.745 10.745 0 24 0 C 37.255 0 48 10.745 48 24 Z M 24.86 17.718 C 22.526 18.689 17.86 20.698 10.864 23.747 C 9.728 24.198 9.133 24.64 9.078 25.073 C 8.987 25.803 9.901 26.091 11.147 26.482 C 11.316 26.536 11.492 26.591 11.672 26.649 C 12.897 27.048 14.546 27.514 15.403 27.532 C 16.18 27.549 17.047 27.228 18.005 26.571 C 24.542 22.158 27.917 19.928 28.129 19.88 C 28.278 19.846 28.485 19.803 28.626 19.928 C 28.766 20.052 28.752 20.289 28.737 20.352 C 28.647 20.738 25.056 24.076 23.198 25.804 C 22.619 26.342 22.208 26.724 22.124 26.811 C 21.936 27.007 21.744 27.192 21.56 27.369 C 20.422 28.467 19.568 29.29 21.607 30.634 C 22.587 31.279 23.372 31.813 24.154 32.346 C 25.008 32.928 25.861 33.509 26.963 34.231 C 27.244 34.415 27.512 34.607 27.774 34.793 C 28.768 35.502 29.661 36.139 30.765 36.037 C 31.406 35.978 32.069 35.375 32.405 33.577 C 33.2 29.326 34.763 20.117 35.124 16.322 C 35.156 15.989 35.116 15.564 35.084 15.377 C 35.052 15.19 34.986 14.924 34.743 14.727 C 34.455 14.494 34.011 14.445 33.813 14.448 C 32.91 14.464 31.525 14.946 24.86 17.718 Z"/></svg>
           </a>
         </div>
@@ -694,7 +694,7 @@
         <h1>Монетизируйте свой<br/>контент по максимуму</h1>
         <p class="lede">Мы поможем превратить твой контент в стабильный<br/>и растущий источник прибыли</p>
 
-        <a class="btn cta" href="#d-contact">
+        <a class="btn cta" href="https://form.asana.com/?k=_i2aW1PvQTtSM5ldLjA9xA&amp;d=1206405818803094" target="_blank" rel="noopener">
           <svg class="shape" viewBox="0 0 423 64" preserveAspectRatio="none" aria-hidden="true"><path d="M 322 0 C 332.714 0 342.196 5.266 348.003 13.349 C 349.778 15.82 352.959 17 356 17 C 359.483 17 363.225 15.723 365.303 12.927 C 371.135 5.083 380.474 0 391 0 C 408.673 0 423 14.327 423 32 C 423 49.673 408.673 64 391 64 C 380.474 64 371.135 58.917 365.303 51.072 C 363.225 48.276 359.483 47 356 47 C 352.959 47 349.778 48.18 348.004 50.65 C 342.196 58.734 332.714 64 322 64 L 32 64 C 14.327 64 0 49.673 0 32 C 0 14.327 14.327 0 32 0 L 322 0 Z"/></svg>
           <span class="label">Хочу зарабатывать больше</span>
           <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#131313" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><polyline points="18 8 18 18 8 18"/></svg></span>
@@ -826,7 +826,7 @@
         <div class="art-l" role="presentation"></div>
         <div class="art-r" role="presentation"></div>
 
-        <form onsubmit="event.preventDefault(); this.reset(); alert('Заявка отправлена!');">
+        <form onsubmit="event.preventDefault(); window.open('https://form.asana.com/?k=_i2aW1PvQTtSM5ldLjA9xA&amp;d=1206405818803094','_blank','noopener');">
           <input class="input" type="text" placeholder="ИМЯ *" required />
           <input class="input" type="text" placeholder="НИК В ТГ *" required />
           <button class="btn submit" type="submit">
@@ -836,7 +836,7 @@
           </button>
         </form>
 
-        <a class="tg-channel" href="#" target="_blank" rel="noopener">
+        <a class="tg-channel" href="http://t.me/tegridy_agency" target="_blank" rel="noopener">
           <span class="ic" aria-hidden="true">
             <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="14" fill="#229ed9"/><path transform="translate(0.97 3.2)" fill="#ffffff" fill-rule="evenodd" d="M 1.792 9.299 C 8.788 6.25 13.454 4.241 15.788 3.27 C 22.453 0.498 23.838 0.016 24.741 0 C 24.939 -0.003 25.383 0.046 25.671 0.279 C 25.914 0.476 25.98 0.742 26.012 0.929 C 26.044 1.116 26.084 1.541 26.052 1.874 C 25.691 5.669 24.128 14.878 23.333 19.129 C 22.997 20.927 22.334 21.53 21.693 21.589 C 20.299 21.718 19.241 20.668 17.891 19.783 C 15.779 18.399 14.586 17.537 12.535 16.186 C 10.166 14.624 11.702 13.766 13.052 12.363 C 13.406 11.996 19.546 6.411 19.665 5.904 C 19.68 5.841 19.694 5.604 19.554 5.48 C 19.413 5.355 19.206 5.398 19.057 5.432 C 18.845 5.48 15.47 7.71 8.933 12.123 C 7.975 12.78 7.108 13.101 6.331 13.084 C 5.474 13.066 3.825 12.6 2.6 12.201 C 1.097 11.713 -0.098 11.454 0.006 10.625 C 0.06 10.192 0.656 9.75 1.792 9.299 Z"/></svg>
           </span>
@@ -869,7 +869,7 @@
     <header class="topbar">
       <a class="logo" href="#" aria-label="Tegridy"></a>
       <div class="right">
-        <a class="tg" href="#m-contact" aria-label="Telegram">
+        <a class="tg" href="http://t.me/tegridy_agency" target="_blank" rel="noopener" aria-label="Telegram">
           <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
         </a>
         <button class="menu-btn" type="button" id="menuBtn" aria-label="Меню"><span></span></button>
@@ -886,7 +886,7 @@
     <section class="hero" data-screen-label="01 Hero">
       <h1>Монетизируйте свой контент по максимуму</h1>
       <p class="lede">Мы поможем превратить твой контент в стабильный и растущий источник прибыли</p>
-      <a class="cta" href="#m-contact">Хочу зарабатывать больше</a>
+      <a class="cta" href="https://form.asana.com/?k=_i2aW1PvQTtSM5ldLjA9xA&amp;d=1206405818803094" target="_blank" rel="noopener">Хочу зарабатывать больше</a>
       <div class="girl" role="img" aria-label="Иллюстрация"></div>
     </section>
 
@@ -988,12 +988,12 @@
         <div class="illu" aria-hidden="true"></div>
         <div class="illu right" aria-hidden="true"></div>
       </div>
-      <form onsubmit="event.preventDefault(); alert('Заявка отправлена');">
+      <form onsubmit="event.preventDefault(); window.open('https://form.asana.com/?k=_i2aW1PvQTtSM5ldLjA9xA&amp;d=1206405818803094','_blank','noopener');">
         <input type="text" placeholder="Имя *" required />
         <input type="text" placeholder="Ник в тг *" required />
         <button class="submit" type="submit">Отправить заявку</button>
       </form>
-      <a class="tg-channel" href="#" target="_blank" rel="noopener">
+      <a class="tg-channel" href="http://t.me/tegridy_agency" target="_blank" rel="noopener">
         <span class="tg-icon">
           <svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
         </span>
