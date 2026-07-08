@@ -8,9 +8,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
+  :root{
+    --ink:#131313;            /* rgb(19,19,19)  */
+    --ink-20:#141414;         /* rgb(20,20,20)  */
+    --bg-hero:#f9f4f4;        /* rgb(249,244,244) */
+    --bg-services:#eaeaea;    /* rgb(234,234,234) */
+    --bg-process:#131313;     /* rgb(19,19,19)  */
+    --bg-faq:#e6b7cf;         /* rgb(230,183,207) */
+    --pill:#fbdceb;           /* rgb(251,220,235) */
+    --bg-contact:#f1f1f1;     /* rgb(241,241,241) */
+    --card-dark:#16151b;      /* rgb(22,21,27)  */
+    --input:#e2e2e2;          /* rgb(226,226,226) */
+    --green:#53c067;          /* rgb(83,192,103) */
+    --blue:#0a59a6;           /* rgb(10,89,166) */
+    --orange:#e4951e;         /* rgb(228,149,30) */
+    --red:#b51515;            /* rgb(181,21,21) */
+    --tg:#26a5e3;             /* rgb(38,165,227) */
+    --font:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
   /* ───────── SHARED RESET ───────── */
   *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: #d1d1d1; font-family: 'Montserrat', sans-serif; color: #131313; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; background: #d1d1d1; font-family: var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { text-decoration: none; color: var(--ink); }
+  a:hover { color: var(--green); }
 
   /* responsive shell toggle (mobile-first default) */
   .d-shell { display: none; }
@@ -23,369 +45,227 @@
     .d-shell { display: block; }
     .m-shell { display: none; }
 
-    .scale-wrap { width: 100vw; overflow-x: hidden; }
-    .page {
-      position: relative;
-      width: 1440px;
-      height: 5311px;
-      margin: 0 auto;
-      background: #f9f4f4;
-      transform-origin: top left;
-    }
+    html, body { background: #0a0a0a; }
 
-    .sec { position: absolute; left: 0; width: 1440px; overflow: hidden; }
+    .scale-wrap { width: 100vw; }
+    .page {
+      width: 1440px;
+      margin: 0 auto;
+      background: var(--bg-hero);
+      transform-origin: top left;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .sec { position: relative; width: 1440px; overflow: hidden; }
 
     /* ───────── HEADER ───────── */
-    .header { height: 100px; display: flex; align-items: center; overflow: visible !important; }
+    .header { position: absolute; left: 0; top: 0; width: 1440px; height: 100px; overflow: hidden; z-index: 5; }
+    .footer .header { position: relative; }
     .header .logo {
-      position: absolute;
-      left: 56px; top: 12px;
-      width: 180px; height: 76px;
-      background: url('assets/logo-tegridy.jpg') left center / contain no-repeat;
-      mix-blend-mode: multiply;
+      position: absolute; left: 71px; top: -16px; width: 133px; height: 133px;
+      background: url('assets/fig-logo.png') center / contain no-repeat;
     }
     .header nav {
-      position: absolute;
-      left: 444px; top: 38px;
+      position: absolute; left: 444px; top: 38px;
       display: flex; gap: 40px; align-items: center;
     }
     .header nav a {
-      font-size: 20px; line-height: 1;
-      color: #131313;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      font-size: 20px; line-height: 1; font-weight: 400; color: var(--ink);
+      white-space: nowrap; text-transform: uppercase;
     }
-    .header nav a:hover { color: #53c067; }
+    .header nav a:hover { color: var(--green); }
     .header .tg-link {
-      position: absolute;
-      left: 1320px; top: 30px;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: #131313;
-      display: grid; place-items: center;
+      position: absolute; left: 1320px; top: 30px; width: 40px; height: 40px;
+      display: block; line-height: 0;
     }
-    .header .tg-link svg { width: 22px; height: 22px; }
+    .header .tg-link svg { display: block; width: 40px; height: 40px; transition: transform .15s ease; }
+    .header .tg-link:hover svg { transform: scale(1.06); }
 
     /* ───────── HERO ───────── */
-    .hero { top: 0; height: 1024px; background: #f9f4f4; }
+    .hero { height: 1024px; background: var(--bg-hero); }
     .hero h1 {
-      position: absolute;
-      left: 80px; top: 278px;
-      width: 952px;
-      margin: 0;
-      font-size: 64px;
-      line-height: 84px;
-      font-weight: 800;
-      color: #131313;
-      letter-spacing: -0.005em;
+      position: absolute; left: 80px; top: 278px; width: 952px; margin: 0;
+      font-size: 64px; line-height: 84px; font-weight: 800; color: var(--ink); text-transform: uppercase;
     }
     .hero .lede {
-      position: absolute;
-      left: 80px; top: 470px;
-      width: 720px;
-      font-size: 24px;
-      line-height: 34px;
-      color: #131313;
+      position: absolute; left: 80px; top: 470px; width: 665px; margin: 0;
+      font-size: 24px; line-height: 34px; font-weight: 400; color: var(--ink);
     }
-    .hero .cta {
-      position: absolute;
-      left: 80px; top: 586px;
-      width: 423px; height: 64px;
-      border-radius: 17px;
-      background: #53c067;
-      color: #131313;
-      display: flex; align-items: center;
-      padding: 0 44px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      transition: transform .15s ease, filter .15s ease;
+
+    /* action buttons built from the Figma "Union" shape */
+    .btn { position: relative; display: block; text-decoration: none; background: none; border: 0; padding: 0; margin: 0; -webkit-appearance: none; appearance: none; color: inherit; font: inherit; cursor: pointer; }
+    .btn .shape { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .btn .shape path { transition: fill .15s ease; }
+    .btn .arrow { position: absolute; display: block; }
+    .btn .arrow svg { display: block; width: 100%; height: 100%; }
+
+    .hero .cta { position: absolute; left: 80px; top: 586px; width: 423px; height: 64px; }
+    .hero .cta .shape path { fill: var(--green); }
+    .hero .cta:hover .shape path { fill: #48ae5a; }
+    .hero .cta .label {
+      position: absolute; left: 44px; top: 0; height: 64px; display: flex; align-items: center;
+      font-size: 16px; font-weight: 600; color: var(--ink); white-space: nowrap; text-transform: uppercase;
     }
-    .hero .cta:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .hero .cta::after {
-      content: "";
-      margin-left: auto;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: #131313 url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><line x1=%227%22 y1=%2217%22 x2=%2217%22 y2=%227%22/><polyline points=%227 7 17 7 17 17%22/></svg>') center/16px no-repeat;
-      transform: rotate(45deg);
-    }
-    .hero .stats {
-      position: absolute;
-      left: 80px; top: 736px;
-      display: flex; gap: 80px;
-    }
-    .hero .stat .v { font-size: 48px; font-weight: 500; line-height: 1; color: #131313; white-space: nowrap; }
-    .hero .stat .l { margin-top: 14px; font-size: 18px; line-height: 22px; color: #131313; white-space: pre-line; }
+    .hero .cta .arrow { left: 375px; top: 16px; width: 32px; height: 32px; }
+
+    .hero .stats { position: absolute; left: 80px; top: 736px; display: flex; gap: 80px; align-items: flex-start; }
+    .hero .stat .v { font-size: 48px; font-weight: 500; line-height: 1; color: var(--ink); white-space: nowrap; text-transform: uppercase; }
+    .hero .stat .l { margin: 14px 0 0 47px; font-size: 18px; line-height: 22px; font-weight: 400; color: var(--ink); white-space: pre-line; }
+
     .hero .girl {
-      position: absolute;
-      left: 955px; top: 343px;
-      width: 466px; height: 698px;
+      position: absolute; left: 955px; top: 343px; width: 466px; height: 698px;
       background: url('assets/hero-girl.png') center / contain no-repeat;
     }
 
-    /* ───────── SERVICES + STATS ───────── */
-    .band-services {
-      top: 1024px;
-      height: 1098px;
-      background: #eaeaea;
+    /* ───────── SERVICES + METRICS ───────── */
+    .services { height: 1098px; background: var(--bg-services); }
+    .services .hd {
+      position: absolute; left: 145px; top: 64px; width: 1150px; margin: 0; text-align: center;
+      font-size: 40px; line-height: 54px; font-weight: 600; color: var(--ink-20); text-wrap: balance; text-transform: uppercase;
     }
-    .band-services .hd {
-      position: absolute;
-      left: 145px; top: 64px;
-      width: 1150px;
-      text-align: center;
-      font-size: 40px; line-height: 54px;
-      color: #141414;
+    .services .cards { position: absolute; left: 80px; top: 244px; width: 1280px; display: flex; gap: 20px; }
+    .services .card {
+      position: relative; width: 413px; height: 236px; border-radius: 24px;
+      box-shadow: inset 0 0 0 2px var(--ink-20); overflow: hidden;
     }
-    .band-services .hd b { font-weight: 700; }
-    .band-services .cards {
-      position: absolute;
-      left: 80px; top: 244px;
-      width: 1280px;
-      display: flex; gap: 20px;
+    .services .card h3 {
+      position: absolute; left: 20px; top: 28px; width: 373px; margin: 0; text-align: center;
+      font-size: 24px; line-height: 34px; font-weight: 700; color: var(--ink-20); text-transform: uppercase;
     }
-    .band-services .card {
-      width: 413px; height: 236px;
-      border-radius: 24px;
-      border: 2px solid #141414;
-      padding: 28px 20px;
-      box-sizing: border-box;
+    .services .card p {
+      position: absolute; left: 20px; top: 78px; width: 376px; margin: 0;
+      font-size: 16px; line-height: 26px; font-weight: 400; color: var(--ink-20);
     }
-    .band-services .card h3 {
-      margin: 0 0 16px;
-      font-size: 24px; line-height: 34px;
-      font-weight: 700;
-      color: #141414;
-      text-align: center;
+    .services .hd2 {
+      position: absolute; left: 227px; top: 528px; margin: 0; white-space: nowrap;
+      font-size: 40px; line-height: 46px; font-weight: 400; color: var(--ink-20); text-transform: uppercase;
     }
-    .band-services .card p {
-      margin: 0;
-      font-size: 16px; line-height: 26px;
-      color: #141414;
+    .services .carousel {
+      position: absolute; left: -81px; top: 614px; width: 1604px; height: 420px;
+      display: flex; align-items: flex-start; gap: 19.75px; overflow: hidden;
     }
-
-    .band-services .hd2 {
-      position: absolute;
-      left: 0; right: 0; top: 528px;
-      text-align: center;
-      font-size: 40px; line-height: 46px;
-      color: #141414;
+    .services .metric:nth-child(even) { align-self: flex-end; }
+    .services .metric {
+      position: relative; flex: 0 0 305px; width: 305px; height: 380px;
+      border-radius: 16px; background: var(--card-dark); overflow: hidden;
     }
-    .band-services .hd2 b { font-weight: 700; }
-    .band-services .carousel {
-      position: absolute;
-      left: -81px; top: 614px;
-      width: 1604px; height: 420px;
-      overflow: hidden;
-      display: flex; gap: 20px;
-    }
-    .band-services .dash {
-      flex: 0 0 305px;
-      height: 380px;
-      border-radius: 16px;
-      background: #16151b;
-      align-self: center;
-      overflow: hidden;
-      position: relative;
-    }
-    .band-services .dash img {
-      position: absolute;
-      left: 13px; top: 0;
-      width: 279px;
-      height: auto;
-      object-fit: cover;
+    .services .metric img {
+      position: absolute; left: 13px; top: 0; width: 279px; height: 380px; display: block;
+      object-fit: cover; object-position: 50% 20%;
     }
 
     /* ───────── PROCESS ───────── */
-    .process { top: 2122px; height: 1607px; background: #131313; color: #fff; }
-    .process h2 {
-      position: absolute;
-      left: 0; right: 0; top: 64px;
-      margin: 0;
-      text-align: center;
-      font-size: 40px; line-height: 46px;
-      font-weight: 700;
-      color: #fff;
+    .process { height: 1607px; background: var(--bg-process); color: #fff; }
+    .process > h2 {
+      position: absolute; left: 0; right: 0; top: 64px; margin: 0; text-align: center;
+      font-size: 40px; line-height: 46px; font-weight: 600; color: #fff; text-transform: uppercase;
     }
-    .process .row {
-      position: absolute;
-      display: flex; align-items: center;
-      gap: 64px;
+    .process .row { position: absolute; display: flex; align-items: center; }
+    .process .imgbox { position: relative; flex: 0 0 auto; overflow: hidden; }
+    .process .imgbox .panel { position: absolute; width: 151px; height: 94px; }
+    .process .body { flex: 1 1 auto; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+    .process .body h3 {
+      margin: 0; font-size: 40px; line-height: 46px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .005em;
     }
-    .process .row .imgbox {
-      position: relative; flex: 0 0 auto; overflow: hidden;
-    }
-    .process .row .imgbox .silhouette {
-      width: 100%; height: 100%;
-      background: url('assets/silhouette.png') center / cover no-repeat;
-    }
-    .process .row .imgbox.stan .silhouette {
-      background: url('assets/stan.png') center / cover no-repeat;
-    }
-    .process .row .imgbox .panel {
-      position: absolute;
-      width: 151px; height: 94px;
-    }
-    .process .row .body { flex: 1 1 auto; max-width: 1040px; }
-    .process .row h3 {
-      margin: 0 0 24px;
-      font-size: 40px; line-height: 48px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.005em;
-    }
-    .process .row p { margin: 0; font-size: 20px; line-height: 32px; color: #fff; }
+    .process .body p { margin: 0; font-size: 20px; line-height: 32px; font-weight: 400; color: #fff; text-wrap: pretty; }
 
-    .row-1 { left: -58px; top: 150px; width: 1370px; height: 357px; }
+    /* row 1 — Аудит (image left) */
+    .row-1 { left: -58px; top: 150px; width: 1370px; height: 357px; gap: 64px; }
     .row-1 .imgbox { width: 242px; height: 357px; }
-    .row-1 .imgbox.stan .panel { left: 46px; top: 124.5px; background: #0a59a6; }
-    .row-1 h3 { color: #0a59a6; }
-
-    .row-2 { left: 248px; top: 657px; width: 1272px; height: 373px; flex-direction: row-reverse; gap: 36px; }
+    .row-1 .imgbox .bg { position: absolute; inset: 0; background: url('assets/stan.png') center / cover no-repeat; }
+    .row-1 .imgbox .panel { left: 46px; top: 124.5px; background: var(--blue); }
+    .row-1 .body h3 { color: var(--blue); }
+    /* row 2 — Образ (image right) */
+    .row-2 { left: 248px; top: 507px; width: 1272px; height: 373px; gap: 36px; flex-direction: row-reverse; }
     .row-2 .imgbox { width: 271px; height: 373px; }
-    .row-2 .imgbox .panel { left: 54px; top: 119px; background: #53c067; }
-    .row-2 h3 { color: #53c067; }
-
-    .row-3 { left: -94px; top: 1030px; width: 1312px; height: 358px; gap: 51px; }
+    .row-2 .imgbox .bg { position: absolute; inset: 0; background: url('assets/silhouette.png') center / cover no-repeat; }
+    .row-2 .imgbox .panel { left: 54px; top: 119px; background: var(--green); }
+    .row-2 .body h3 { color: var(--green); }
+    /* row 3 — Работа (image left) */
+    .row-3 { left: -94px; top: 880px; width: 1312px; height: 358px; gap: 51px; }
     .row-3 .imgbox { width: 291px; height: 358px; }
-    .row-3 .imgbox .panel { left: 86px; top: 100px; background: #e4951e; }
-    .row-3 h3 { color: #e4951e; }
-
-    .row-4 { left: 248px; top: 1388px; width: 1343px; height: 369px; flex-direction: row-reverse; gap: 49px; }
+    .row-3 .imgbox .bg { position: absolute; inset: 0; background: url('assets/silhouette.png') center / cover no-repeat; }
+    .row-3 .imgbox .panel { left: 86px; top: 100px; background: var(--orange); }
+    .row-3 .body h3 { color: var(--orange); }
+    /* row 4 — Чаттинг (image right) */
+    .row-4 { left: 248px; top: 1238px; width: 1343px; height: 369px; gap: 49px; flex-direction: row-reverse; }
     .row-4 .imgbox { width: 349px; height: 369px; }
-    .row-4 .imgbox .panel { left: 81px; top: 123px; background: #b51515; }
-    .row-4 h3 { color: #b51515; }
+    .row-4 .imgbox .bg { position: absolute; inset: 0; background: url('assets/silhouette.png') center / cover no-repeat; }
+    .row-4 .imgbox .panel { left: 81px; top: 123px; background: var(--red); }
+    .row-4 .body h3 { color: var(--red); }
 
-    /* ───────── FAQ ───────── */
-    .faq { top: 3729px; height: 874px; background: #e6b7cf; }
-    .faq h2 {
-      position: absolute;
-      left: 0; right: 0; top: 64px;
-      margin: 0;
-      text-align: center;
-      font-size: 40px; line-height: 46px;
-      font-weight: 700;
-      color: #000;
+    /* ───────── FAQ (accordion) ───────── */
+    .faq {
+      background: var(--bg-faq); overflow: visible;
+      display: flex; flex-direction: column; align-items: center; padding: 64px 0;
     }
-    .faq .list {
-      position: absolute;
-      left: 80px; top: 150px;
-      width: 1280px;
-      display: flex; flex-direction: column;
-      gap: 40px;
-    }
+    .faq > h2 { margin: 0 0 40px; font-size: 40px; line-height: 46px; font-weight: 600; color: #000; text-align: center; text-transform: uppercase; }
+    .faq .list { width: 1280px; display: flex; flex-direction: column; gap: 40px; }
+    .faq .item { width: 1280px; }
     .faq .q {
-      width: 1280px; height: 100px;
-      border-radius: 74px;
-      background: #fbdceb;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 0 60px;
-      font-size: 24px; line-height: 30px;
-      font-weight: 500;
-      color: #000;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease;
+      position: relative; width: 1280px; min-height: 100px; border: 0; background: var(--pill);
+      border-radius: 74px; cursor: pointer; font-family: inherit; color: #000;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding: 22px 64px; font-size: 24px; line-height: 30px; font-weight: 500; text-transform: uppercase;
+      transition: border-radius .25s ease, background .2s ease;
     }
-    .faq .q:hover { background: #ffd0e6; transform: translateY(-2px); }
+    .faq .q:hover { background: #ffd0e6; }
+    .faq .item.open .q { border-radius: 74px 74px 0 0; }
+    .faq .q .chev {
+      position: absolute; right: 44px; top: 50%; width: 26px; height: 26px; margin-top: -13px;
+      transition: transform .3s ease; color: #000; opacity: .6;
+    }
+    .faq .item.open .q .chev { transform: rotate(180deg); opacity: .9; }
+    .faq .a { overflow: hidden; max-height: 0; transition: max-height .35s ease; background: var(--pill); border-radius: 0 0 50px 50px; }
+    .faq .item.open .a { max-height: 800px; }
+    .faq .a .inner {
+      padding: 6px 60px 40px; border-top: 1px solid rgba(0,0,0,.10);
+      margin-top: 2px; font-size: 16px; line-height: 30px; font-weight: 400; color: var(--ink);
+    }
+    .faq .a .inner p { margin: 20px 0 0; text-wrap: pretty; }
 
     /* ───────── CONTACT ───────── */
-    .contact { top: 4603px; height: 608px; background: #f1f1f1; }
-    .contact h2 {
-      position: absolute;
-      left: 0; right: 0; top: 64px;
-      margin: 0;
-      text-align: center;
-      font-size: 40px; line-height: 46px;
-      font-weight: 700;
-      color: #030303;
+    .contact { height: 608px; background: var(--bg-contact); }
+    .contact > h2 {
+      position: absolute; left: 0; right: 0; top: 64px; margin: 0; text-align: center;
+      font-size: 40px; line-height: 46px; font-weight: 600; color: #030303; text-transform: uppercase;
     }
-    .contact .form-left {
-      position: absolute;
-      left: -14px; top: 51px;
-      width: 494px; height: 494px;
+    .contact .art-l {
+      position: absolute; left: -14px; top: 51px; width: 494px; height: 494px; transform: scaleX(-1);
       background: url('assets/form-left.png') center / contain no-repeat;
-      transform: scaleX(-1);
     }
-    .contact .form-right {
-      position: absolute;
-      left: 921px; top: 51px;
-      width: 534px; height: 534px;
+    .contact .art-r {
+      position: absolute; left: 921px; top: 51px; width: 534px; height: 534px;
       background: url('assets/form-right.png') center / contain no-repeat;
     }
-    .contact .form {
-      position: absolute;
-      left: 514px; top: 146px;
-      width: 413px;
-      display: flex; flex-direction: column;
-      gap: 16px;
-    }
+    .contact form { position: absolute; left: 514px; top: 146px; width: 413px; display: flex; flex-direction: column; gap: 16px; }
     .contact .input {
-      width: 413px; height: 56px;
-      border-radius: 57px;
-      background: #e2e2e2;
-      border: 0; outline: 0;
-      padding: 0 33px;
-      font-family: inherit;
-      font-size: 14px; font-weight: 500;
-      color: #000;
+      width: 413px; height: 56px; border-radius: 57px; background: var(--input); border: 0; outline: 0;
+      padding: 0 33px; font-family: inherit; font-size: 14px; font-weight: 500; color: #000;
     }
     .contact .input::placeholder { color: #000; opacity: 1; }
-    .contact .submit {
-      margin-top: 16px;
-      width: 413px; height: 56px;
-      border-radius: 17px;
-      background: rgba(92,92,92,0.7);
-      color: #000;
-      border: 0;
-      font-family: inherit;
-      font-weight: 500; font-size: 16px;
-      display: flex; align-items: center; justify-content: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: background .15s ease;
+    .contact .submit { margin-top: 16px; width: 413px; height: 56px; cursor: pointer; }
+    .contact .submit .shape path { fill: rgba(92,92,92,.7); }
+    .contact .submit:hover .shape path { fill: rgba(92,92,92,.92); }
+    .contact .submit .label {
+      position: absolute; left: 88px; top: 0; height: 56px; display: flex; align-items: center;
+      font-size: 16px; font-weight: 500; color: #000; text-transform: uppercase; white-space: nowrap;
     }
-    .contact .submit:hover { background: rgba(92,92,92,0.9); color: #fff; }
-    .contact .submit::after {
-      content: "";
-      width: 24px; height: 24px;
-      background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><line x1=%227%22 y1=%2217%22 x2=%2217%22 y2=%227%22/><polyline points=%227 7 17 7 17 17%22/></svg>') center / contain no-repeat;
-      transform: rotate(45deg);
-    }
+    .contact .submit .arrow { left: 366px; top: 12px; width: 32px; height: 32px; }
     .contact .tg-channel {
-      position: absolute;
-      left: 615.5px; top: 426px;
-      width: 210px; height: 52px;
-      border-radius: 65px;
-      border: 1px solid #28a5e3;
-      background: #fff;
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #030303;
-      font-weight: 500; font-size: 16px;
-      transition: background .15s ease, color .15s ease;
+      position: absolute; left: 615.5px; top: 426px; width: 210px; height: 52px; border-radius: 65px;
+      box-shadow: inset 0 0 0 1px var(--tg); background: #fff;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      font-size: 16px; font-weight: 500; color: #030303; transition: background .15s ease, color .15s ease; text-transform: uppercase;
     }
-    .contact .tg-channel:hover { background: #28a5e3; color: #fff; }
-    .contact .tg-channel .tg-icon {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: linear-gradient(#2aabee 0%, #229ed9 100%);
-      display: grid; place-items: center;
-    }
-    .contact .tg-channel .tg-icon svg { width: 18px; height: 18px; }
+    .contact .tg-channel:hover { background: var(--tg); color: #fff; }
+    .contact .tg-channel .ic { width: 28px; height: 28px; display: block; line-height: 0; }
 
     /* ───────── FOOTER ───────── */
-    .footer { top: 5211px; height: 100px; background: #fff; }
+    .footer { height: 100px; background: #fff; }
     .footer .header { background: #fff; }
-    .footer .header .logo { mix-blend-mode: multiply; }
-    .footer nav a { color: #131313; }
-    .footer nav a:hover { color: #53c067; }
   }
 
   /* ═════════════════════════════════════════════════════════
@@ -800,44 +680,40 @@
         <div class="header">
           <a class="logo" href="#" aria-label="Tegridy"></a>
           <nav>
-            <a href="/operator">ДЛЯ ОПЕРАТОРОВ</a>
-            <a href="#d-services">УСЛУГИ</a>
-            <a href="#d-cases">КЕЙСЫ</a>
+            <a href="/operator">Для операторов</a>
+            <a href="#d-services">Услуги</a>
+            <a href="#d-cases">Кейсы</a>
             <a href="#d-faq">FAQ</a>
-            <a href="#d-contact">КОНТАКТЫ</a>
+            <a href="#d-contact">Контакты</a>
           </nav>
           <a class="tg-link" href="#d-contact" aria-label="Telegram">
-            <svg viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill-rule="evenodd" fill="#131313" d="M 48 24 C 48 37.255 37.255 48 24 48 C 10.745 48 0 37.255 0 24 C 0 10.745 10.745 0 24 0 C 37.255 0 48 10.745 48 24 Z M 24.86 17.718 C 22.526 18.689 17.86 20.698 10.864 23.747 C 9.728 24.198 9.133 24.64 9.078 25.073 C 8.987 25.803 9.901 26.091 11.147 26.482 C 11.316 26.536 11.492 26.591 11.672 26.649 C 12.897 27.048 14.546 27.514 15.403 27.532 C 16.18 27.549 17.047 27.228 18.005 26.571 C 24.542 22.158 27.917 19.928 28.129 19.88 C 28.278 19.846 28.485 19.803 28.626 19.928 C 28.766 20.052 28.752 20.289 28.737 20.352 C 28.647 20.738 25.056 24.076 23.198 25.804 C 22.619 26.342 22.208 26.724 22.124 26.811 C 21.936 27.007 21.744 27.192 21.56 27.369 C 20.422 28.467 19.568 29.29 21.607 30.634 C 22.587 31.279 23.372 31.813 24.154 32.346 C 25.008 32.928 25.861 33.509 26.963 34.231 C 27.244 34.415 27.512 34.607 27.774 34.793 C 28.768 35.502 29.661 36.139 30.765 36.037 C 31.406 35.978 32.069 35.375 32.405 33.577 C 33.2 29.326 34.763 20.117 35.124 16.322 C 35.156 15.989 35.116 15.564 35.084 15.377 C 35.052 15.19 34.986 14.924 34.743 14.727 C 34.455 14.494 34.011 14.445 33.813 14.448 C 32.91 14.464 31.525 14.946 24.86 17.718 Z"/></svg>
           </a>
         </div>
 
         <h1>Монетизируйте свой<br/>контент по максимуму</h1>
         <p class="lede">Мы поможем превратить твой контент в стабильный<br/>и растущий источник прибыли</p>
-        <a class="cta" href="#d-contact">Хочу зарабатывать больше</a>
+
+        <a class="btn cta" href="#d-contact">
+          <svg class="shape" viewBox="0 0 423 64" preserveAspectRatio="none" aria-hidden="true"><path d="M 322 0 C 332.714 0 342.196 5.266 348.003 13.349 C 349.778 15.82 352.959 17 356 17 C 359.483 17 363.225 15.723 365.303 12.927 C 371.135 5.083 380.474 0 391 0 C 408.673 0 423 14.327 423 32 C 423 49.673 408.673 64 391 64 C 380.474 64 371.135 58.917 365.303 51.072 C 363.225 48.276 359.483 47 356 47 C 352.959 47 349.778 48.18 348.004 50.65 C 342.196 58.734 332.714 64 322 64 L 32 64 C 14.327 64 0 49.673 0 32 C 0 14.327 14.327 0 32 0 L 322 0 Z"/></svg>
+          <span class="label">Хочу зарабатывать больше</span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#131313" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><polyline points="18 8 18 18 8 18"/></svg></span>
+        </a>
 
         <div class="stats">
-          <div class="stat">
-            <div class="v">&gt; 100K $</div>
-            <div class="l">оборот агенства</div>
-          </div>
-          <div class="stat">
-            <div class="v">1400$</div>
-            <div class="l">средняя зп
-чатера</div>
-          </div>
-          <div class="stat">
-            <div class="v">&gt; 250</div>
-            <div class="l">человек в день
-на страничках</div>
-          </div>
+          <div class="stat"><div class="v">&gt; 100k $</div><div class="l">оборот агенства</div></div>
+          <div class="stat"><div class="v">1400$</div><div class="l">средняя зп
+чатера</div></div>
+          <div class="stat"><div class="v">&gt; 250</div><div class="l">человек в день
+на страничках</div></div>
         </div>
 
-        <div class="girl" role="img" aria-label="Иллюстрация модели"></div>
+        <div class="girl" role="img" aria-label="Модель Tegridy"></div>
       </section>
 
-      <!-- SERVICES + STATS -->
-      <section class="sec band-services" id="d-services" data-screen-label="02 Услуги и показатели">
-        <div class="hd">Tegridy обеспечивает моделям рост доходов,<br/>используя <b>комплексный подход</b></div>
+      <!-- SERVICES + METRICS -->
+      <section class="sec services" id="d-services" data-screen-label="02 Услуги и показатели">
+        <p class="hd">Tegridy обеспечивает моделям рост доходов,<br/>используя комплексный подход</p>
 
         <div class="cards">
           <div class="card">
@@ -854,14 +730,14 @@
           </div>
         </div>
 
-        <div class="hd2" id="d-cases">Наши показатели <b>говорят сами за себя</b></div>
+        <h2 class="hd2" id="d-cases">Наши показатели говорят сами за себя</h2>
 
         <div class="carousel">
-          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
-          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
-          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
-          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
-          <div class="dash"><img src="assets/dash-1.jpg" alt="Статистика" /></div>
+          <div class="metric"><img src="assets/fig-metric-1.jpg" alt="Статистика доходов" /></div>
+          <div class="metric"><img src="assets/fig-metric-2.jpg" alt="Статистика доходов" /></div>
+          <div class="metric"><img src="assets/fig-metric-3.jpg" alt="Статистика доходов" /></div>
+          <div class="metric"><img src="assets/fig-metric-4.jpg" alt="Статистика доходов" /></div>
+          <div class="metric"><img src="assets/fig-metric-5.jpg" alt="Статистика доходов" /></div>
         </div>
       </section>
 
@@ -870,76 +746,99 @@
         <h2>Наш процесс работы</h2>
 
         <div class="row row-1">
-          <div class="imgbox stan">
-            <div class="silhouette"></div>
-            <div class="panel"></div>
-          </div>
+          <div class="imgbox"><div class="bg"></div><div class="panel"></div></div>
           <div class="body">
             <h3>Аудит контента</h3>
-            <p>Мы проводим тщательный анализ ваших социальных сетей и страниц Onlyfans/Fansly, определяем частоту постинга, формат контента, реакции аудитории и результаты, которые уже были достигнуты. Проверяем, насколько глубоко раскрыт ваш образ в соцсетях: что выделяет вас среди других, что привлекает аудиторию и требует доработки.</p>
+            <p>Мы проводим тщательный анализ ваших социальных сетей и страниц Onlyfans/Fansly, определяем частоту постинга, формат контента, реакции аудитории и результаты, которые уже были достигнуты. Проверяем, насколько глубоко раскрыт ваш образ в соцсетях: что выделяет вас среди других, что привлекает аудиторию и требует доработки</p>
           </div>
         </div>
 
         <div class="row row-2">
-          <div class="imgbox">
-            <div class="silhouette"></div>
-            <div class="panel"></div>
-          </div>
+          <div class="imgbox"><div class="bg"></div><div class="panel"></div></div>
           <div class="body">
             <h3>Образ и стратегия</h3>
-            <p>Создаём уникальный, узнаваемый образ модели и разрабатываем детальную стратегию продвижения. Определяем, какие темы, стили и форматы работают лучше всего, учитываем интересы аудитории и планируем публикации, чтобы контент выделялся на платформе и привлекал новых мемберов.</p>
+            <p>Создаем уникальный, узнаваемый образ модели и разрабатываем детальную стратегию продвижения. Определяем, какие темы, стили и форматы работают лучше всего, учитываем интересы аудитории и планируем публикации, чтобы контент выделялся на платформе и привлекал новых мемберов</p>
           </div>
         </div>
 
         <div class="row row-3">
-          <div class="imgbox">
-            <div class="silhouette"></div>
-            <div class="panel"></div>
-          </div>
+          <div class="imgbox"><div class="bg"></div><div class="panel"></div></div>
           <div class="body">
             <h3>Работа с аудиторией</h3>
-            <p>Помогаем выстраивать эффективное взаимодействие с подписчиками, вовлекаем новых мемберов и поддерживаем интерес постоянных. Используем акции, челленджи, интерактивный контент и личные рекомендации, чтобы повышать активность аудитории и превращать обычных подписчиков в лояльных клиентов.</p>
+            <p>Помогаем выстраивать эффективное взаимодействие с подписчиками, вовлекаем новых мемберов и поддерживаем интерес постоянных. Используем акции, челленджи, интерактивный контент и личные рекомендации, чтобы повышать активность аудитории и превращать обычных подписчиков в лояльных клиентов</p>
           </div>
         </div>
 
         <div class="row row-4">
-          <div class="imgbox">
-            <div class="silhouette"></div>
-            <div class="panel"></div>
-          </div>
+          <div class="imgbox"><div class="bg"></div><div class="panel"></div></div>
           <div class="body">
             <h3>Чаттинг и обработка трафика 24/7</h3>
-            <p>Организуем круглосуточную работу с подписчиками, отвечаем на вопросы и проводим интерактив. Поддерживаем активность аудитории, обрабатываем поток трафика, создаём персонализированные ответы и удерживаем подписчиков, что позволяет модели стабильно увеличивать доход и рост мемберов.</p>
+            <p>Организуем круглосуточную работу с подписчиками, отвечаем на вопросы и проводим интерактив. Поддерживаем активность аудитории, обрабатываем поток трафика, создаём персонализированные ответы и удерживаем подписчиков, что позволяет модели стабильно увеличивать доход и рост мемберов</p>
           </div>
         </div>
       </section>
 
       <!-- FAQ -->
       <section class="sec faq" id="d-faq" data-screen-label="04 FAQ">
-        <h2>Раздел FAQ — просто о сложном</h2>
+        <h2>Раздел FAQ - просто о сложном</h2>
         <div class="list">
-          <div class="q">Сколько реально можно зарабатывать на фото/видео контенте?</div>
-          <div class="q">Нужна ли какая-то особая техника для съёмок?</div>
-          <div class="q">Сколько времени придётся тратить на создание контента?</div>
-          <div class="q">Агентство помогает с идеями и продвижением контента или всё самой?</div>
+          <div class="item">
+            <button class="q" aria-expanded="false">
+              <span>А если у меня нет опыта съемок, меня возьмут?</span>
+              <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="a"><div class="inner"><p>Да, опыт не обязателен. Мы обучаем с нуля: показываем, как выстроить кадр, свет и подачу, даём готовые референсы и сопровождаем на каждом этапе. Большинство наших моделей начинали без опыта — важнее желание работать над результатом.</p></div></div>
+          </div>
+          <div class="item">
+            <button class="q" aria-expanded="false">
+              <span>Сколько реально можно зарабатывать на фото/видео контенте?</span>
+              <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="a"><div class="inner"><p>Доход зависит от активности и формата, но большинство моделей выходят на несколько тысяч долларов в месяц уже в первые месяцы работы. Мы выстраиваем воронку и трафик так, чтобы заработок стабильно рос.</p></div></div>
+          </div>
+          <div class="item">
+            <button class="q" aria-expanded="false">
+              <span>Нужна ли какая-то особая техника для съёмок?</span>
+              <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="a"><div class="inner"><p>Нет, на старте достаточно современного смартфона с хорошей камерой. По мере роста подскажем, какое оборудование и свет стоит докупить, чтобы повысить качество контента.</p></div></div>
+          </div>
+          <div class="item">
+            <button class="q" aria-expanded="false">
+              <span>Сколько времени придётся тратить на создание контента?</span>
+              <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="a"><div class="inner"><p>В среднем 1–2 часа в день на съёмку. Публикацию, продвижение, общение с аудиторией и чаттинг агентство берёт на себя — тебе остаётся только создавать контент.</p></div></div>
+          </div>
+          <div class="item">
+            <button class="q" aria-expanded="false">
+              <span>Агентство помогает с идеями и продвижением контента или всё самой?</span>
+              <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </button>
+            <div class="a"><div class="inner"><p>Мы полностью сопровождаем: генерируем идеи, составляем контент-план, настраиваем трафик и ведём чаттинг 24/7. Твоя задача — создавать контент, всё остальное делаем мы.</p></div></div>
+          </div>
         </div>
       </section>
 
       <!-- CONTACT -->
       <section class="sec contact" id="d-contact" data-screen-label="05 Свяжитесь с нами">
         <h2>Свяжитесь с нами</h2>
-        <div class="form-left" role="presentation"></div>
-        <div class="form-right" role="presentation"></div>
+        <div class="art-l" role="presentation"></div>
+        <div class="art-r" role="presentation"></div>
 
-        <form class="form" onsubmit="event.preventDefault(); alert('Заявка отправлена');">
-          <input class="input" type="text" placeholder="Имя *" required />
-          <input class="input" type="text" placeholder="Ник в тг *" required />
-          <button class="submit" type="submit">Отправить заявку</button>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Заявка отправлена!');">
+          <input class="input" type="text" placeholder="ИМЯ *" required />
+          <input class="input" type="text" placeholder="НИК В ТГ *" required />
+          <button class="btn submit" type="submit">
+            <svg class="shape" viewBox="0 0 413 56" preserveAspectRatio="none" aria-hidden="true"><path d="M 316.572 0 C 325.948 0 334.246 4.609 339.327 11.684 C 341.592 14.837 346.402 16.144 350.285 16.144 C 354.469 16.144 360.037 14.771 362.518 11.403 C 367.61 4.49 375.799 0 385.035 0 C 400.48 0 413 12.555 413 28 C 413 43.445 400.48 56 385.035 56 C 375.911 56 367.807 51.618 362.703 44.846 C 360.159 41.471 354.512 40.128 350.285 40.128 C 346.355 40.128 341.468 41.41 339.139 44.576 C 334.042 51.504 325.833 56 316.572 56 L 28 56 C 12.536 56 0 43.464 0 28 C 0 12.536 12.536 0 28 0 L 316.572 0 Z"/></svg>
+            <span class="label">Отправить заявку</span>
+            <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></span>
+          </button>
         </form>
 
         <a class="tg-channel" href="#" target="_blank" rel="noopener">
-          <span class="tg-icon">
-            <svg viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.24 3.64 11.95c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          <span class="ic" aria-hidden="true">
+            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="14" fill="#229ed9"/><path transform="translate(0.97 3.2)" fill="#ffffff" fill-rule="evenodd" d="M 1.792 9.299 C 8.788 6.25 13.454 4.241 15.788 3.27 C 22.453 0.498 23.838 0.016 24.741 0 C 24.939 -0.003 25.383 0.046 25.671 0.279 C 25.914 0.476 25.98 0.742 26.012 0.929 C 26.044 1.116 26.084 1.541 26.052 1.874 C 25.691 5.669 24.128 14.878 23.333 19.129 C 22.997 20.927 22.334 21.53 21.693 21.589 C 20.299 21.718 19.241 20.668 17.891 19.783 C 15.779 18.399 14.586 17.537 12.535 16.186 C 10.166 14.624 11.702 13.766 13.052 12.363 C 13.406 11.996 19.546 6.411 19.665 5.904 C 19.68 5.841 19.694 5.604 19.554 5.48 C 19.413 5.355 19.206 5.398 19.057 5.432 C 18.845 5.48 15.47 7.71 8.933 12.123 C 7.975 12.78 7.108 13.101 6.331 13.084 C 5.474 13.066 3.825 12.6 2.6 12.201 C 1.097 11.713 -0.098 11.454 0.006 10.625 C 0.06 10.192 0.656 9.75 1.792 9.299 Z"/></svg>
           </span>
           наш канал
         </a>
@@ -950,11 +849,11 @@
         <div class="header">
           <a class="logo" href="#" aria-label="Tegridy"></a>
           <nav>
-            <a href="/operator">ДЛЯ ОПЕРАТОРОВ</a>
-            <a href="#d-services">УСЛУГИ</a>
-            <a href="#d-cases">КЕЙСЫ</a>
+            <a href="/operator">Для операторов</a>
+            <a href="#d-services">Услуги</a>
+            <a href="#d-cases">Кейсы</a>
             <a href="#d-faq">FAQ</a>
-            <a href="#d-contact">КОНТАКТЫ</a>
+            <a href="#d-contact">Контакты</a>
           </nav>
         </div>
       </section>
@@ -1118,22 +1017,77 @@
 
 <script>
   (function () {
-    /* Desktop: scale the 1440px canvas down to the viewport width */
+    /* ── Desktop: scale the 1440px canvas down to the viewport width ── */
     var page = document.getElementById('page');
     var wrap = page ? page.parentElement : null;
+
     function fit() {
-      if (!wrap) return;
-      if (window.innerWidth < 768) { wrap.style.height = ''; return; }
-      var vw = wrap.clientWidth;
-      var scale = Math.min(1, vw / 1440);
+      if (!wrap || !page) return;
+      if (window.innerWidth < 768) { wrap.style.height = ''; page.style.transform = ''; return; }
+      var w = wrap.clientWidth || window.innerWidth || 1440;
+      var scale = Math.min(1, w / 1440);
       page.style.transform = 'scale(' + scale + ')';
       page.style.width = '1440px';
-      wrap.style.height = (5311 * scale) + 'px';
+      var h = page.offsetHeight * scale;
+      if (h) wrap.style.height = h + 'px';
     }
-    fit();
+
+    /* ── Desktop FAQ accordion ── */
+    var items = Array.prototype.slice.call(document.querySelectorAll('.d-shell .faq .item'));
+    function setOpen(item, open) {
+      item.classList.toggle('open', open);
+      var q = item.querySelector('.q');
+      if (q) q.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    items.forEach(function (item) {
+      var q = item.querySelector('.q');
+      if (!q) return;
+      q.addEventListener('click', function () {
+        setOpen(item, !item.classList.contains('open'));
+        fit();
+        setTimeout(fit, 380);
+      });
+    });
+
+    /* ── Desktop: scale-aware smooth anchor scrolling ── */
+    document.querySelectorAll('.d-shell a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href').slice(1);
+        var el = id ? document.getElementById(id) : null;
+        e.preventDefault();
+        var y = el ? (window.scrollY + el.getBoundingClientRect().top) : 0;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    });
+
     window.addEventListener('resize', fit);
 
-    /* Mobile: burger menu toggle */
+    window.addEventListener('load', function () {
+      /* open the first FAQ without animating so the page height is correct immediately */
+      if (items[0]) {
+        var a0 = items[0].querySelector('.a');
+        var prev = a0.style.transition;
+        a0.style.transition = 'none';
+        setOpen(items[0], true);
+        void a0.offsetHeight;
+        a0.style.transition = prev;
+      }
+      fit();
+      setTimeout(fit, 400);
+    });
+
+    if (window.ResizeObserver && page) {
+      new ResizeObserver(function () { fit(); }).observe(page);
+    }
+    var tries = 0;
+    (function ensure() {
+      fit();
+      if (wrap && page && (!wrap.clientWidth || !page.offsetHeight) && tries++ < 60) {
+        requestAnimationFrame(ensure);
+      }
+    })();
+
+    /* ── Mobile: burger menu toggle ── */
     var btn = document.getElementById('menuBtn');
     var menu = document.getElementById('menu');
     if (btn && menu) {
