@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Tegridy — агентство</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#131313;            /* rgb(19,19,19)  */
+    --bg-op:#000;             /* операторы — тёмная половина */
+    --bg-mod:#f9f4f4;         /* модели — светлая половина  */
+    --hint:#717171;           /* rgb(113,113,113) */
+    --green:#53c067;          /* rgb(83,192,103) */
+    --orange:#e4951e;         /* rgb(228,149,30) */
+    --tg:#26a5e3;             /* rgb(38,165,227) */
+    --font:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:#0a0a0a; font-family:var(--font); color:#fff; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+  a { text-decoration:none; color:inherit; }
+
+  /* responsive shell toggle (mobile-first default) */
+  .d-shell { display:none; }
+  .m-shell { display:block; }
+
+  /* ═════════════════════════════════════════════════════════
+     DESKTOP (≥ 768px) — 1440×1024 split-screen scaled to width
+     ═════════════════════════════════════════════════════════ */
+  @media (min-width: 768px) {
+    .d-shell { display:block; }
+    .m-shell { display:none; }
+
+    .scale-wrap { width:100vw; }
+    .page{
+      position:relative;
+      width:1440px; height:1024px;
+      margin:0 auto;
+      transform-origin: top left;
+      display:flex; align-items:stretch;
+      overflow:hidden;
+      background:var(--bg-op);
+    }
+
+    /* ───────── HALVES ───────── */
+    .half{
+      position:relative; display:block; height:1024px;
+      flex:0 0 720px;
+      overflow:hidden;
+      transition: flex-basis .45s cubic-bezier(.22,.61,.36,1);
+    }
+    .page.grow-op .op{ flex-basis:800px; }
+    .page.grow-op .mod{ flex-basis:640px; }
+    .page.grow-mod .mod{ flex-basis:800px; }
+    .page.grow-mod .op{ flex-basis:640px; }
+
+    .op{ background:var(--bg-op); color:#fff; }
+    .mod{ background:var(--bg-mod); color:var(--ink); }
+
+    /* ───────── corner chrome ───────── */
+    .op .logo{
+      position:absolute; left:71px; top:-16px; width:133px; height:133px; z-index:4;
+      background:url('assets/fig-logo.png') center / contain no-repeat;
+    }
+    .mod .tg-link{
+      position:absolute; right:80px; top:30px; width:40px; height:40px; z-index:4; line-height:0;
+    }
+    .mod .tg-link svg{ display:block; width:40px; height:40px; transition:transform .15s ease; }
+    .mod .tg-link:hover svg{ transform:scale(1.06); }
+
+    /* ───────── half content ───────── */
+    .half .kicker{
+      position:absolute; left:50%; top:196px; transform:translateX(-50%);
+      margin:0; font-size:18px; line-height:1; font-weight:500; letter-spacing:.14em;
+      text-transform:uppercase; white-space:nowrap;
+    }
+    .op .kicker{ color:var(--orange); }
+    .mod .kicker{ color:var(--green); }
+
+    .half h2{
+      position:absolute; left:50%; top:238px; transform:translateX(-50%); width:640px; margin:0;
+      text-align:center; font-size:56px; line-height:64px; font-weight:800; text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .op h2{ color:#fff; }
+    .mod h2{ color:var(--ink); }
+
+    .half .lede{
+      position:absolute; left:50%; top:330px; transform:translateX(-50%); width:520px; margin:0;
+      text-align:center; font-size:22px; line-height:32px; font-weight:400; text-wrap:balance;
+    }
+    .op .lede{ color:var(--hint); }
+    .mod .lede{ color:var(--ink); }
+
+    /* character art, anchored to the bottom of each half */
+    .half .art{
+      position:absolute; left:50%; bottom:-40px; transform:translateX(-50%);
+      transition:transform .45s cubic-bezier(.22,.61,.36,1);
+    }
+    .op .art{
+      width:380px; height:570px;
+      background:url('assets/fig-guy.png') center bottom / contain no-repeat;
+    }
+    .mod .art{
+      width:374px; height:560px;
+      background:url('assets/hero-girl.png') center bottom / contain no-repeat;
+    }
+    .half:hover .art{ transform:translateX(-50%) translateY(-14px); }
+
+    /* CTA — the Figma "Union" pill */
+    .cta{
+      position:absolute; left:50%; top:452px; transform:translateX(-50%);
+      width:423px; height:64px; display:block; z-index:3;
+    }
+    .cta .shape{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+    .cta .shape path{ transition:fill .15s ease; }
+    .op .cta .shape path{ fill:var(--orange); }
+    .op:hover .cta .shape path{ fill:#f0a53a; }
+    .mod .cta .shape path{ fill:var(--green); }
+    .mod:hover .cta .shape path{ fill:#48ae5a; }
+    .cta .label{
+      position:absolute; left:44px; top:0; height:64px; display:flex; align-items:center;
+      font-size:16px; font-weight:600; color:#000; white-space:nowrap; text-transform:uppercase;
+    }
+    .cta .arrow{ position:absolute; left:375px; top:16px; width:32px; height:32px; display:block; }
+    .cta .arrow svg{ display:block; width:100%; height:100%; }
+
+    /* ───────── telegram channel pill, straddling the divider ───────── */
+    .tg-channel{
+      position:absolute; left:615px; top:920px; width:210px; height:52px; z-index:6;
+      border-radius:65px; background:#fff;
+      box-shadow: inset 0 0 0 1px var(--tg);
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      font-size:16px; font-weight:500; color:#030303; text-transform:uppercase;
+      transition:background .15s ease, color .15s ease;
+    }
+    .tg-channel:hover{ background:var(--tg); color:#fff; }
+    .tg-channel .ic{ width:28px; height:28px; display:block; line-height:0; }
+  }
+
+  /* ═════════════════════════════════════════════════════════
+     MOBILE (< 768px) — two stacked full-width choice cards
+     ═════════════════════════════════════════════════════════ */
+  @media (max-width: 767px) {
+    .mwrap { display:flex; flex-direction:column; min-height:100vh; }
+    .mcard{
+      position:relative; display:flex; flex-direction:column; align-items:center; text-align:center;
+      padding:36px 22px 0; overflow:hidden;
+    }
+    .mcard.dark{ background:#000; color:#fff; }
+    .mcard.light{ background:var(--bg-mod); color:var(--ink); }
+    .mlogo{ width:84px; height:84px; margin-bottom:6px; background:url('assets/fig-logo.png') center / contain no-repeat; }
+    .mkick{ font-size:14px; line-height:1; font-weight:500; letter-spacing:.14em; text-transform:uppercase; }
+    .mcard.dark .mkick{ color:var(--orange); }
+    .mcard.light .mkick{ color:var(--green); }
+    .mtitle{ margin:10px 0 12px; font-size:30px; line-height:36px; font-weight:800; text-transform:uppercase; }
+    .mlede{ margin:0 0 22px; font-size:16px; line-height:24px; max-width:300px; }
+    .mcard.dark .mlede{ color:var(--hint); }
+
+    .mcta{ position:relative; width:300px; max-width:90%; height:60px; display:block; }
+    .mcta .shape{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+    .mcta.op .shape path{ fill:var(--orange); }
+    .mcta.mod .shape path{ fill:var(--green); }
+    .mcta .label{
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      font-size:15px; font-weight:600; color:#000; text-transform:uppercase; letter-spacing:.02em;
+    }
+
+    .mart{ margin-top:24px; width:230px; height:300px; background-position:center bottom; background-repeat:no-repeat; background-size:contain; }
+    .mart.op{ background-image:url('assets/fig-guy.png'); }
+    .mart.mod{ background-image:url('assets/hero-girl.png'); }
+
+    .mtgbar{ background:var(--bg-mod); display:flex; justify-content:center; padding:6px 0 36px; }
+    .mtg{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      width:210px; height:52px; border-radius:65px; background:#fff;
+      box-shadow: inset 0 0 0 1px var(--tg);
+      font-size:16px; font-weight:500; color:#030303; text-transform:uppercase;
+    }
+    .mtg .ic{ width:28px; height:28px; display:block; line-height:0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ DESKTOP ═══════════════ -->
+<div class="d-shell">
+  <div class="scale-wrap">
+    <div class="page" id="page" data-screen-label="MAIN — выбор направления">
+
+      <!-- ДЛЯ ОПЕРАТОРОВ -->
+      <a class="half op" href="/operator" data-screen-label="Для операторов" aria-label="Для операторов">
+        <span class="logo" aria-hidden="true"></span>
+        <p class="kicker">Tegridy</p>
+        <h2>Для операторов</h2>
+        <p class="lede">Преврати переписки<br/>в стабильный доход</p>
+        <span class="cta">
+          <svg class="shape" viewBox="0 0 423 64" preserveAspectRatio="none" aria-hidden="true"><path d="M 322 0 C 332.714 0 342.196 5.266 348.003 13.349 C 349.778 15.82 352.959 17 356 17 C 359.483 17 363.225 15.723 365.303 12.927 C 371.135 5.083 380.474 0 391 0 C 408.673 0 423 14.327 423 32 C 423 49.673 408.673 64 391 64 C 380.474 64 371.135 58.917 365.303 51.072 C 363.225 48.276 359.483 47 356 47 C 352.959 47 349.778 48.18 348.004 50.65 C 342.196 58.734 332.714 64 322 64 L 32 64 C 14.327 64 0 49.673 0 32 C 0 14.327 14.327 0 32 0 L 322 0 Z"/></svg>
+          <span class="label">Стать оператором</span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></span>
+        </span>
+        <span class="art" role="img" aria-label="Оператор Tegridy"></span>
+      </a>
+
+      <!-- ДЛЯ МОДЕЛЕЙ -->
+      <a class="half mod" href="/model" data-screen-label="Для моделей" aria-label="Для моделей">
+        <span class="tg-link" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path fill-rule="evenodd" fill="#131313" d="M 48 24 C 48 37.255 37.255 48 24 48 C 10.745 48 0 37.255 0 24 C 0 10.745 10.745 0 24 0 C 37.255 0 48 10.745 48 24 Z M 24.86 17.718 C 22.526 18.689 17.86 20.698 10.864 23.747 C 9.728 24.198 9.133 24.64 9.078 25.073 C 8.987 25.803 9.901 26.091 11.147 26.482 C 11.316 26.536 11.492 26.591 11.672 26.649 C 12.897 27.048 14.546 27.514 15.403 27.532 C 16.18 27.549 17.047 27.228 18.005 26.571 C 24.542 22.158 27.917 19.928 28.129 19.88 C 28.278 19.846 28.485 19.803 28.626 19.928 C 28.766 20.052 28.752 20.289 28.737 20.352 C 28.647 20.738 25.056 24.076 23.198 25.804 C 22.619 26.342 22.208 26.724 22.124 26.811 C 21.936 27.007 21.744 27.192 21.56 27.369 C 20.422 28.467 19.568 29.29 21.607 30.634 C 22.587 31.279 23.372 31.813 24.154 32.346 C 25.008 32.928 25.861 33.509 26.963 34.231 C 27.244 34.415 27.512 34.607 27.774 34.793 C 28.768 35.502 29.661 36.139 30.765 36.037 C 31.406 35.978 32.069 35.375 32.405 33.577 C 33.2 29.326 34.763 20.117 35.124 16.322 C 35.156 15.989 35.116 15.564 35.084 15.377 C 35.052 15.19 34.986 14.924 34.743 14.727 C 34.455 14.494 34.011 14.445 33.813 14.448 C 32.91 14.464 31.525 14.946 24.86 17.718 Z"/></svg>
+        </span>
+        <p class="kicker">Tegridy</p>
+        <h2>Для моделей</h2>
+        <p class="lede">Монетизируй свой контент<br/>по максимуму</p>
+        <span class="cta">
+          <svg class="shape" viewBox="0 0 423 64" preserveAspectRatio="none" aria-hidden="true"><path d="M 322 0 C 332.714 0 342.196 5.266 348.003 13.349 C 349.778 15.82 352.959 17 356 17 C 359.483 17 363.225 15.723 365.303 12.927 C 371.135 5.083 380.474 0 391 0 C 408.673 0 423 14.327 423 32 C 423 49.673 408.673 64 391 64 C 380.474 64 371.135 58.917 365.303 51.072 C 363.225 48.276 359.483 47 356 47 C 352.959 47 349.778 48.18 348.004 50.65 C 342.196 58.734 332.714 64 322 64 L 32 64 C 14.327 64 0 49.673 0 32 C 0 14.327 14.327 0 32 0 L 322 0 Z"/></svg>
+          <span class="label">Стать моделью</span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#131313" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="18" x2="18" y2="6"/><polyline points="8 6 18 6 18 16"/></svg></span>
+        </span>
+        <span class="art" role="img" aria-label="Модель Tegridy"></span>
+      </a>
+
+      <!-- TELEGRAM CHANNEL -->
+      <a class="tg-channel" href="https://t.me/tegridy_agency" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="14" fill="#229ed9"/><path transform="translate(0.97 3.2)" fill="#ffffff" fill-rule="evenodd" d="M 1.792 9.299 C 8.788 6.25 13.454 4.241 15.788 3.27 C 22.453 0.498 23.838 0.016 24.741 0 C 24.939 -0.003 25.383 0.046 25.671 0.279 C 25.914 0.476 25.98 0.742 26.012 0.929 C 26.044 1.116 26.084 1.541 26.052 1.874 C 25.691 5.669 24.128 14.878 23.333 19.129 C 22.997 20.927 22.334 21.53 21.693 21.589 C 20.299 21.718 19.241 20.668 17.891 19.783 C 15.779 18.399 14.586 17.537 12.535 16.186 C 10.166 14.624 11.702 13.766 13.052 12.363 C 13.406 11.996 19.546 6.411 19.665 5.904 C 19.68 5.841 19.694 5.604 19.554 5.48 C 19.413 5.355 19.206 5.398 19.057 5.432 C 18.845 5.48 15.47 7.71 8.933 12.123 C 7.975 12.78 7.108 13.101 6.331 13.084 C 5.474 13.066 3.825 12.6 2.6 12.201 C 1.097 11.713 -0.098 11.454 0.006 10.625 C 0.06 10.192 0.656 9.75 1.792 9.299 Z"/></svg>
+        </span>
+        наш канал
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MOBILE ═══════════════ -->
+<div class="m-shell">
+  <div class="mwrap" data-screen-label="MAIN mobile">
+
+    <a class="mcard dark" href="/operator" aria-label="Для операторов">
+      <span class="mlogo" aria-hidden="true"></span>
+      <span class="mkick">Tegridy</span>
+      <h2 class="mtitle">Для операторов</h2>
+      <p class="mlede">Преврати переписки в стабильный доход</p>
+      <span class="mcta op">
+        <svg class="shape" viewBox="0 0 423 64" preserveAspectRatio="none" aria-hidden="true"><path d="M 322 0 C 332.714 0 342.196 5.266 348.003 13.349 C 349.778 15.82 352.959 17 356 17 C 359.483 17 363.225 15.723 365.303 12.927 C 371.135 5.083 380.474 0 391 0 C 408.673 0 423 14.327 423 32 C 423 49.673 408.673 64 391 64 C 380.474 64 371.135 58.917 365.303 51.072 C 363.225 48.276 359.483 47 356 47 C 352.959 47 349.778 48.18 348.004 50.65 C 342.196 58.734 332.714 64 322 64 L 32 64 C 14.327 64 0 49.673 0 32 C 0 14.327 14.327 0 32 0 L 322 0 Z"/></svg>
+        <span class="label">Стать оператором</span>
+      </span>
+      <span class="mart op" role="img" aria-label="Оператор Tegridy"></span>
+    </a>
+
+    <a class="mcard light" href="/model" aria-label="Для моделей">
+      <span class="mkick">Tegridy</span>
+      <h2 class="mtitle">Для моделей</h2>
+      <p class="mlede">Монетизируй свой контент по максимуму</p>
+      <span class="mcta mod">
+        <svg class="shape" viewBox="0 0 423 64" preserveAspectRatio="none" aria-hidden="true"><path d="M 322 0 C 332.714 0 342.196 5.266 348.003 13.349 C 349.778 15.82 352.959 17 356 17 C 359.483 17 363.225 15.723 365.303 12.927 C 371.135 5.083 380.474 0 391 0 C 408.673 0 423 14.327 423 32 C 423 49.673 408.673 64 391 64 C 380.474 64 371.135 58.917 365.303 51.072 C 363.225 48.276 359.483 47 356 47 C 352.959 47 349.778 48.18 348.004 50.65 C 342.196 58.734 332.714 64 322 64 L 32 64 C 14.327 64 0 49.673 0 32 C 0 14.327 14.327 0 32 0 L 322 0 Z"/></svg>
+        <span class="label">Стать моделью</span>
+      </span>
+      <span class="mart mod" role="img" aria-label="Модель Tegridy"></span>
+    </a>
+
+    <div class="mtgbar">
+      <a class="mtg" href="https://t.me/tegridy_agency" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="14" fill="#229ed9"/><path transform="translate(0.97 3.2)" fill="#ffffff" fill-rule="evenodd" d="M 1.792 9.299 C 8.788 6.25 13.454 4.241 15.788 3.27 C 22.453 0.498 23.838 0.016 24.741 0 C 24.939 -0.003 25.383 0.046 25.671 0.279 C 25.914 0.476 25.98 0.742 26.012 0.929 C 26.044 1.116 26.084 1.541 26.052 1.874 C 25.691 5.669 24.128 14.878 23.333 19.129 C 22.997 20.927 22.334 21.53 21.693 21.589 C 20.299 21.718 19.241 20.668 17.891 19.783 C 15.779 18.399 14.586 17.537 12.535 16.186 C 10.166 14.624 11.702 13.766 13.052 12.363 C 13.406 11.996 19.546 6.411 19.665 5.904 C 19.68 5.841 19.694 5.604 19.554 5.48 C 19.413 5.355 19.206 5.398 19.057 5.432 C 18.845 5.48 15.47 7.71 8.933 12.123 C 7.975 12.78 7.108 13.101 6.331 13.084 C 5.474 13.066 3.825 12.6 2.6 12.201 C 1.097 11.713 -0.098 11.454 0.006 10.625 C 0.06 10.192 0.656 9.75 1.792 9.299 Z"/></svg>
+        </span>
+        наш канал
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    /* Desktop: scale the 1440×1024 canvas to viewport width + hover-grow */
+    var page = document.getElementById('page');
+    var wrap = page ? page.parentElement : null;
+
+    function fit() {
+      if (!wrap || !page) return;
+      if (window.innerWidth < 768) { wrap.style.height = ''; page.style.transform = ''; return; }
+      var w = wrap.clientWidth || window.innerWidth || 1440;
+      var scale = Math.min(1, w / 1440);
+      page.style.transform = 'scale(' + scale + ')';
+      wrap.style.height = (1024 * scale) + 'px';
+    }
+
+    var op = document.querySelector('.d-shell .half.op');
+    var mod = document.querySelector('.d-shell .half.mod');
+    if (op && mod && page) {
+      op.addEventListener('mouseenter', function () { page.classList.add('grow-op'); });
+      op.addEventListener('mouseleave', function () { page.classList.remove('grow-op'); });
+      mod.addEventListener('mouseenter', function () { page.classList.add('grow-mod'); });
+      mod.addEventListener('mouseleave', function () { page.classList.remove('grow-mod'); });
+    }
+
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+    if (window.ResizeObserver && wrap) { new ResizeObserver(fit).observe(wrap); }
+    fit();
+  })();
+</script>
+</body>
+</html>
