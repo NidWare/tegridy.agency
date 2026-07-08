@@ -13,15 +13,15 @@
   var TOTAL = 9;
 
   var LESSONS = [
-    { id: 'l1', file: 'lesson-1.html', title: '1 урок. Знакомство с командой' },
-    { id: 'l2', file: 'lesson-2.html', title: '2 урок. Рабочие задачи и условия сотрудничества' },
-    { id: 'l3', file: 'lesson-3.html', title: '3 урок. Изучение платформы' },
-    { id: 'l4', file: 'lesson-4.html', title: '4 урок. Важные правила агенства + тест' },
-    { id: 'l5', file: 'lesson-5.html', title: '5 урок. Психология продаж' },
-    { id: 'l6', file: 'lesson-6.html', title: '6 урок. Плавный чаттинг и правила продаж' },
-    { id: 'l7', file: 'lesson-7.html', title: '7 урок. Правила платформы + тест' },
-    { id: 'l8', file: 'lesson-8.html', title: '8 урок. Продажа кастомных видео' },
-    { id: 'l9', file: 'lesson-9.html', title: '9 урок. Чек-лист рабочего дня + тест' }
+    { id: 'l1', file: 'lesson-1', title: '1 урок. Знакомство с командой' },
+    { id: 'l2', file: 'lesson-2', title: '2 урок. Рабочие задачи и условия сотрудничества' },
+    { id: 'l3', file: 'lesson-3', title: '3 урок. Изучение платформы' },
+    { id: 'l4', file: 'lesson-4', title: '4 урок. Важные правила агенства + тест' },
+    { id: 'l5', file: 'lesson-5', title: '5 урок. Психология продаж' },
+    { id: 'l6', file: 'lesson-6', title: '6 урок. Плавный чаттинг и правила продаж' },
+    { id: 'l7', file: 'lesson-7', title: '7 урок. Правила платформы + тест' },
+    { id: 'l8', file: 'lesson-8', title: '8 урок. Продажа кастомных видео' },
+    { id: 'l9', file: 'lesson-9', title: '9 урок. Чек-лист рабочего дня + тест' }
   ];
 
   function readDone() {
